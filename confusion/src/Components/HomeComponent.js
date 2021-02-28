@@ -5,8 +5,67 @@ import {Modal, ModalHeader,ModalBody,ModalFooter,Form} from 'reactstrap';
 function Head(){
  const [keyconnection,setkeyc]=useState(false);
  const [keysignup,setkeys]=useState(false);
+ const [fullname,setFullname]=useState("");
+ const [email,setemail]=useState("");
+ const [password,setpassword]=useState("");
+ const [ville,setville]=useState("");
+ const [domaine,setdomaine]=useState("");
 const togglec= ()=>{setkeyc(!keyconnection)};
 const toggles= ()=>{setkeys(!keysignup)};
+function handlchangeemail(event){
+    setemail(event.target.value);
+   
+  }
+  function handlchangename(event){
+    setFullname(event.target.value);
+   console.log(fullname);
+  }
+  function handlchangepass(event){
+    setpassword(event.target.value);
+   
+  }
+  function handlchangedomaine(event){
+    setdomaine(event.target.value);
+   
+  }
+  function handlchangeville(event){
+    setville(event.target.value);
+   
+  }
+  function handlsignupsubmoit(event){
+    event.preventDefault(); 
+    const info={
+        email:email,
+        fullname:fullname,
+        ville:ville,
+        password:password,
+        domaine:domaine
+    }
+    fetch("",{
+        method:'POST',
+        body:JSON.stringify(info),
+        headers:{
+          "Content-Type" : "application/json"
+          },
+          credentials :"same-origin"
+ });
+  }
+  function handelconnectsubmit(event){
+    event.preventDefault(); 
+    const info={
+        email:email,
+        password:password,
+        domaine:domaine
+    }
+    fetch("",{
+        method:'POST',
+        body:JSON.stringify(info),
+        headers:{
+          "Content-Type" : "application/json"
+          },
+          credentials :"same-origin"
+ });
+  }
 return(
     
     <div>
@@ -39,20 +98,20 @@ return(
               <ModalBody>
                   <Form>
                   <div class="mb-3 row">
-                        <label for="nom" class="col-sm-2 col-form-label">Nom et Prénom</label>
-                        <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="nom"/>
+                        <label for="nom" className="col-sm-2 col-form-label">Nom et Prénom</label>
+                        <div className="col-sm-10">
+                        <input type="text" onChange={handlchangename} readonly className="form-control-plaintext" id="nom"/>
                         </div>
                  </div>
-                 <div class="mb-3 row">
-                        <label for="domaine" class="col-sm-2 col-form-label">Domaine</label>
-                        <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="domaine" placeholder="Votre domaine ou spécialité"/>
+                 <div className="mb-3 row">
+                        <label for="domaine" className="col-sm-2 col-form-label">Domaine</label>
+                        <div className="col-sm-10">
+                        <input type="text" onChange={handlchangedomaine} readonly className="form-control-plaintext" id="domaine" placeholder="Votre domaine ou spécialité"/>
                         </div>
                  </div>
-                 <div class="mb-3 row">
-                 <label for="exampleDataList" class="form-label">Ville</label>
-                    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="votre ville"/>
+                 <div className="mb-3 row">
+                 <label for="exampleDataList" className="form-label">Ville</label>
+                    <input className="form-control" onChange={handlchangeville}list="datalistOptions" id="exampleDataList" placeholder="votre ville"/>
                     <datalist id="datalistOptions">
                     <option value="Tanger"/>
                     <option value="Tetouan"/>
@@ -61,50 +120,50 @@ return(
                     <option value="Asila"/>
                     </datalist>
                  </div>
-                  <div class="mb-3 row">
-                        <label for="staticEmail1" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail1" placeholder="Votre Email"/>
+                  <div className="mb-3 row">
+                        <label for="staticEmail1" className="col-sm-2 col-form-label">Email</label>
+                        <div className="col-sm-10">
+                        <input type="text" readonly onChange={handlchangeemail} className="form-control-plaintext" id="staticEmail1" placeholder="Votre Email"/>
                         </div>
                  </div>
-                <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
-                        <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword"/>
+                <div className="mb-3 row">
+                        <label for="inputPassword" className="col-sm-2 col-form-label">Mot de passe</label>
+                        <div className="col-sm-10">
+                        <input type="password" onChange={handlchangepass} className="form-control" id="inputPassword"/>
                         </div>
                 </div>
-                <div class="mb-3">
-                <label for="formFileMultiple" class="form-label">Photo et CV</label>
-                <input class="form-control" type="file" id="formFileMultiple" multiple/>
+                <div className="mb-3">
+                <label for="formFileMultiple" className="form-label">Photo et CV</label>
+                <input className="form-control" type="file" id="formFileMultiple" multiple/>
                 </div>
                   </Form>
               </ModalBody>
               <ModalFooter>
-                  <button className="btn btn-primary">Créer</button>
+                  <button type="submit" onClick={(event)=>handelconnectsubmit(event)} className="btn btn-primary">Créer</button>
               </ModalFooter>
             </Modal>
 
 
             <Modal isOpen={keyconnection} toggle={toggles}>
-              <ModalHeader toggle={toggles}>Conectez Vous !</ModalHeader>
+              <ModalHeader toggle={togglec}>Conectez Vous !</ModalHeader>
               <ModalBody>
                   <Form>
                   <div class="mb-3 row">
                         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                        <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Votre Email"/>
+                        <input type="text" onChange={handlchangeemail}  readonly class="form-control-plaintext" id="staticEmail" placeholder="Votre Email"/>
                         </div>
                  </div>
                 <div class="mb-3 row">
                         <label for="inputPassword" class="col-sm-2 col-form-label">Mot de passe</label>
                         <div class="col-sm-10">
-                        <input type="password" class="form-control" id="inputPassword"/>
+                        <input type="password"  onChange={handlchangepass}class="form-control" id="inputPassword"/>
                         </div>
                 </div>
                   </Form>
               </ModalBody>
               <ModalFooter>
-                  <button className="btn btn-primary">Créer</button>
+                  <button type="submit" onClick={(event)=>handlsignupsubmoit(event)} className="btn btn-primary">Créer</button>
               </ModalFooter>
             </Modal>
       </body>
