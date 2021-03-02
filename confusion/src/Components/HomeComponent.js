@@ -51,7 +51,7 @@ function handlchangeemail(event){
         creationDate:"01/01/2021"
        // domaine:domaine
     }
-    fetch("",{
+    fetch("http://localhost:8080/user",{
         method:'POST',
         body:JSON.stringify(info),
         headers:{
