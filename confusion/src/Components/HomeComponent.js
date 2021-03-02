@@ -11,6 +11,7 @@ function Head(){
  const [password,setpassword]=useState("");
  const [ville,setville]=useState("");
  const [domaine,setdomaine]=useState("");
+ const [search,setSearch]=useState("");
 const togglec= ()=>{setkeyc(!keyconnection)};
 const toggles= ()=>{setkeys(!keysignup)};
 function handlchangeemail(event){
@@ -33,14 +34,22 @@ function handlchangeemail(event){
     setville(event.target.value);
    
   }
-  function handlsignupsubmoit(event){
+  const handlSetSearch=(event)=>{
+     setSearch(event.target.value);
+     console.log(search);
+  }
+  function handlsignupsubmit(event){
     event.preventDefault(); 
     const info={
         email:email,
-        fullname:fullname,
-        ville:ville,
+        firstName:fullname,
+        lastName :fullname,
+        birthDate:"01/05/99",
+       // ville:ville,
         password:password,
-        domaine:domaine
+        role:"user",
+        creationDate:"01/01/2021"
+       // domaine:domaine
     }
     fetch("",{
         method:'POST',
@@ -56,7 +65,7 @@ function handlchangeemail(event){
     const info={
         email:email,
         password:password,
-        domaine:domaine
+     //  domaine:domaine
     }
     fetch("",{
         method:'POST',
@@ -67,6 +76,9 @@ function handlchangeemail(event){
           credentials :"same-origin"
  });
   }
+
+  // fonction pour l'affichage de l'inscription
+
   const inscrire=(isBrico,keysignup,toggles)=>{
     if(isBrico){
       return(
@@ -86,9 +98,9 @@ function handlchangeemail(event){
                   <input type="text" onChange={handlchangedomaine} readonly className="form-control-plaintext" id="domaine" placeholder="Votre domaine ou spécialité"/>
                   </div>
            </div>
-           <div className="mb-3 row">
-           <label for="exampleDataList" className="col-2 form-label">Ville</label>
-              <input className="col-10 form-control" onChange={handlchangeville}list="datalistOptions" id="exampleDataList" placeholder="votre ville"/>
+           <div className="mb-3 d-flex flex-row">
+           <label for="exampleDataList" className="p-2 form-label">Ville</label>
+              <input className="form-control" onChange={handlchangeville}list="datalistOptions" id="exampleDataList" placeholder="votre ville"/>
               <datalist id="datalistOptions">
               <option value="Tanger"/>
               <option value="Tetouan"/>
@@ -110,13 +122,13 @@ function handlchangeemail(event){
                   </div>
           </div>
           <div className="mb-3">
-          <label for="formFileMultiple" className="form-label">Photo et CV</label>
+          <label for="formFileMultiple" className="form-label">Photo et CV (OPTIONELS)</label>
           <input className="form-control" type="file" id="formFileMultiple" multiple/>
           </div>
             </Form>
         </ModalBody>
         <div className="d-flex justify-content-center mb-3">
-            <button type="submit" onClick={(event)=>handelconnectsubmit(event)} className="btn btn-success">Créer</button>
+            <button type="submit" onClick={(event)=>handlsignupsubmit(event)} className="btn btn-success">Créer</button>
         </div>
         </Modal>
       );
@@ -132,9 +144,9 @@ function handlchangeemail(event){
                   <input type="text" onChange={handlchangename} readonly className="form-control-plaintext" id="nom"/>
                   </div>
            </div>
-           <div className="mb-3 row">
-           <label for="exampleDataList" className="col-2 form-label">Ville</label>
-              <input className="col-10 form-control" onChange={handlchangeville}list="datalistOptions" id="exampleDataList" placeholder="votre ville"/>
+           <div className="mb-3 d-flex flex-row">
+           <label for="exampleDataList" className="p-2 form-label">Ville</label>
+              <input className="form-control" onChange={handlchangeville}list="datalistOptions" id="exampleDataList" placeholder="votre ville"/>
               <datalist id="datalistOptions">
               <option value="Tanger"/>
               <option value="Tetouan"/>
@@ -158,19 +170,24 @@ function handlchangeemail(event){
             </Form>
         </ModalBody>
         <div className="d-flex justify-content-center mb-3">
-            <button type="submit" onClick={(event)=>handelconnectsubmit(event)} className="btn btn-success">Créer</button>
+            <button type="submit" onClick={(event)=>handlsignupsubmit(event)} className="btn btn-success">Créer</button>
         </div>
         </Modal>
       );
     }
   }
+
+  // le return  
 return(
     
     <div>
        <header  >
-           <div className="navbar bg-light" style={{boxShadow: "0px 1px 16px  #c5d7bd" }} >
-               <img src="assets/Brand.jpeg" style={{height:"40px",width:"110px"}}/>
-             
+           <div className="navbar bg-light row justify-content-around" style={{boxShadow: "0px 1px 16px  #c5d7bd" }} >
+               <img className="col-md-3"src="assets/Brand.jpeg" style={{height:"40px",width:"110px"}}/>
+              <form className="col-md-5 d-flex flex-row p-2 ">
+                <input className="form-control  ms-2" type="search" onChange={(event)=>handlSetSearch(event)} placeholder="trouver des problèmes similaires"/>
+                <button className="btn btn-outline-success mr-3 " onClick="">Rechercher</button>
+              </form>
            </div>
        </header>
 
@@ -197,7 +214,6 @@ return(
                         <img src='assets/careerb.png' style={{width:"550px",height:"550px",/*boxShadow:"0px 4px 12px #c5d7bd"*/}}/>   
                 </div>
             </div> 
-          
           {inscrire(isBrico,keysignup,toggles)}
 
 
@@ -220,7 +236,7 @@ return(
                   </Form>
               </ModalBody>
               <div className="d-flex justify-content-center mb-3">
-                 <button type="submit" onClick={(event)=>handlsignupsubmoit(event)} className=" btn btn-success ">Connecter</button>
+                 <button type="submit" onClick={(event)=>handelconnectsubmit(event)} className=" btn btn-success ">Connecter</button>
               </div>
             </Modal>
       </body>
