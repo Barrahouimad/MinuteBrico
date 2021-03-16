@@ -1,10 +1,14 @@
 import './App.css';
-import Head from './Components/HomeComponent';
+import Home from './Components/HomeComponent';
 import Main from './Components/MainComponent'; 
+import Mission from './Components/MissionsComponent';
+import {BrowserRouter} from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-       <Head/>
+      <BrowserRouter>
+       <Home/>
+     </BrowserRouter>
     </div>
   );
 }

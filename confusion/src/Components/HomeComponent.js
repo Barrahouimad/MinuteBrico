@@ -1,8 +1,10 @@
 import react, {useState} from 'react'
+import {Link} from 'react-router-dom';
 import '../home.css';
+//import {BiSearchAlt} from 'React.Component.icons';
 import {Modal, ModalHeader,ModalBody,ModalFooter,Form} from 'reactstrap';
-
-function Head(){
+//import SearchIcon from '@material-ui/icons/Search';
+function Home(){
  const [keyconnection,setkeyc]=useState(false);
  const [keysignup,setkeys]=useState(false);
  const [isBrico,setBrico]=useState(false);
@@ -41,6 +43,7 @@ function handlchangeemail(event){
   function handlsignupsubmit(event){
     event.preventDefault(); 
     const info={
+        id:5,
         email:email,
         firstName:fullname,
         lastName :fullname,
@@ -181,24 +184,27 @@ function handlchangeemail(event){
 return(
     
     <div>
-       <header  >
-           <div className="navbar bg-light row justify-content-around" style={{boxShadow: "0px 1px 16px  #c5d7bd" }} >
-               <img className="col-md-3"src="assets/Brand.jpeg" style={{height:"40px",width:"110px"}}/>
-              <form className="col-md-5 d-flex flex-row p-2 ">
-                <input className="form-control  ms-2" type="search" onChange={(event)=>handlSetSearch(event)} placeholder="trouver des problèmes similaires"/>
-                <button className="btn btn-outline-success mr-3 " onClick="">Rechercher</button>
-              </form>
-           </div>
-       </header>
+       <div className="fluid-container"  >
+           <div className="navbar bg-light row justify-content-between" style={{boxShadow: "0px 1px 16px  #c5d7bd" }} >
+            <div className="container"  >
+            <a  href="/home" className="navbar-link"> <img className="col-md-3" src="assets/Brand.jpeg" style={{height:"40px",width:"110px"}}/></a>
+                
+                <div className="auto d-flex">  
+                <input className="form-control  ms-2" id="Search" type="search" onChange={(event)=>handlSetSearch(event)} placeholder="trouver des problèmes similaires"></input>
 
-       <body>
+                  <Link to="/missions" className="nav-link">Consulter Missions</Link>
+               </div> 
+           </div>
+       </div>
+    </div>
+       <div>
            <div className="row">
                 <div className="col-md-6" style={{marginTop:"60px",fontFamily:"'EB Garamond', serif"}} >  
                  <div className="d-flex flex-column">
                     <h4  className="mt-4 p-2">Bienvenue dans votre site MinuteBrico</h4>
                     <h5 className="p-2">Postez vos problémes ou prennez des opportunitées de bricolage</h5>
-                    <h4  className="p-2">مرحبا في موقعكم</h4>
-                    <h5 className="p-2">انشرو مشاكلكم حتى تجدو من يحلها</h5>
+                    <h4  className="p-2">  مرحبا في موقعكم</h4>
+                    <h5 className="p-2">شاركو مشاكلكم و اغتنمو فرص للعمل</h5>
                     <div className=" form" style={{marginTop:"110px"}} >
                         <button id="connecter" className="btn" style={{height:"70px",width:"190px",borderRadius:"150px" ,background:"#383e56", color:"white",marginRight:"20px"}} onClick={()=>{setkeyc(!keyconnection)}} >se connecter</button>
                         <button id="inscrire" style={{height:"70px",width:"200px",borderRadius:"100px"}} className="btn btn-outline-dark" onClick={()=>setkeys(!keysignup)}>s'inscrire</button>
@@ -239,7 +245,7 @@ return(
                  <button type="submit" onClick={(event)=>handelconnectsubmit(event)} className=" btn btn-success ">Connecter</button>
               </div>
             </Modal>
-      </body>
+      </div>
 
     </div>
 );
@@ -247,4 +253,4 @@ return(
 
 
 }
-export default Head;
+export default Home;

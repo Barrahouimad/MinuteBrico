@@ -10,3 +10,10 @@
    #inscrire{
        transform :scale(1);
    }
+#Search:focus{
+    width:30%
+}
+#Search{
+    border-radius: 100px;
+    width:2%
+}
