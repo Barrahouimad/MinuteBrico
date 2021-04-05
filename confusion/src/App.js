@@ -1,15 +1,24 @@
 import './App.css';
-import Home from './Components/HomeComponent';
-import Main from './Components/MainComponent'; 
-import Mission from './Components/MissionsComponent';
-import {BrowserRouter} from 'react-router-dom';
+import React from 'react'
+import store from './Shared/store';
+import Main from './Views/MainComponent'; 
+import {BrowserRouter } from 'react-router-dom';
+
+export const ThemeContext= React.createContext(store);
+
 function App() {
+  
+
   return (
+    <ThemeContext.Provider value={store}>
     <div className="App">
+
       <BrowserRouter>
-       <Home/>
+         <Main/>
      </BrowserRouter>
+
     </div>
+   </ThemeContext.Provider>
   );
 }
 

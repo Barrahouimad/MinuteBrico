@@ -1,0 +1,71 @@
+#connecter:hover{
+ transform :scale(1.15);
+ 
+}
+#connecter{
+    transform :scale(1);
+    animation: up 1s;
+}
+
+#inscrire:hover{
+    transform :scale(1.15);
+   }
+  
+ #inscrire{
+    transform :scale(1);
+    animation: up 1s;
+       
+   }
+
+   #Search:focus{
+    width:50%
+}
+#Search{
+    border-radius: 100px;
+    width:2%
+}
+/*#text ,h5,h4{
+    
+ animation: side 0.5s linear ;
+}
+@keyframes side{
+    0%{
+        visibility:hidden;
+        color:#ffffff;
+        position:relative;
+        left: 300px;
+    }
+    50%{
+        visibility:hidden;
+        position:relative;
+    left: 150px;
+        color:#ffffff;
+    }
+    100%{
+        position:relative;
+        left: 10px;
+        color:black;
+    }
+}
+@keyframes up{
+  0%{
+      visibility:hidden;
+      margin-bottom:150px;
+  }
+  50%{
+      visibility:visible;
+      margin-bottom:50px;
+  }
+  100%{
+      margin-bottom:10px;
+  }
+}*/
+
+/*
+section h4:hover, h5:hover{
+ 
+    transition :0.5s;
+    margin-left:50px;
+    transform-origin:left;
+
+}*/
