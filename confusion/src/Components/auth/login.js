@@ -23,7 +23,7 @@ export default class Login extends Component {
     return (
       <div className="_Signup">
           <div className="SignUpPage">
-           <Link to="/"> <img alt="..." src="/images/logo.png" className="logo" /></Link>
+           <Link to="/"> <img alt="..." src="/assets/logo.png" className="logo" /></Link>
             <p className="title">Connecter à votre compte</p>
             <form onSubmit={(e)=>{
               e.preventDefault()
@@ -40,7 +40,7 @@ export default class Login extends Component {
             </div>
             <div className="DejaSeconnact">Vous n'avez pas de compte? <Link to="/signup" className="btnConnect">S'inscrire</Link></div>
        </div>
-          <img alt="..." src="/images/12.jpeg" className="bg" />
+          <img alt="..." src="/assets/12.jpeg" className="bg" />
       </div>
     );
   }
