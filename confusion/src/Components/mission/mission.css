@@ -6,11 +6,23 @@ background-position:center;     /*pour si on réduit la fenetre le background re
 position:absolute;
 min-height:100%;
 min-width:100%;
-background: rgb(255,255,255);
-background: linear-gradient(335deg, rgba(255,255,255,1) 48%, rgba(253,241,214,1) 59%);
+background: #F6E2D8;
+background: linear-gradient(335deg, rgba(255,255,255,1) 48%, #F6E2D8 59%);
+}
+#missionImage{
+  background-size:cover;
+  height:200px;
+  width:auto;
+}
+#something{
+  position:absolute;
+  left:90px;
+  top:30px;
+  color:black;
+  font-family:'Roboto Mono', monospace;
 }
 #box{
-    background:red;
+    
     overflow-y: scroll;
   }
   #box::-webkit-scrollbar{

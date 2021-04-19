@@ -1,6 +1,6 @@
 import React,{useContext} from 'react'
-import Mission from '../Components/MissionsComponent';
-import Acceuille from './Acceuille'
+import Mission from '../Components/mission/MissionsComponent';
+
 import {ThemeContext} from '../App'
 import Home from '../Components/HomeComponent';
 import Home1 from './Home1';
