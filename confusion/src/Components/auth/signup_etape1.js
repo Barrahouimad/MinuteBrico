@@ -17,9 +17,9 @@ export default class SignUpEtape1 extends Component {
     var email = document.getElementById("IdEmail")
     var password = document.getElementById("pass1")
     if(pass1.value===pass2.value){
-      Axios.post("http://localhost:8080/registration",{
-        firstName :"iliass",
-        lastName : "alilou",
+      Axios.post("http://localhost:8080/Client",{
+        firstName :"barrahou",
+        lastName : "imad",
         email : email.value,
         password : password.value   //"iliass@gmail.com"
    })
@@ -57,7 +57,7 @@ export default class SignUpEtape1 extends Component {
               }}
             />
             
-           <Link to="/"> <img alt="..." src="/assets/logo.png" className="logo" /></Link>
+           <Link to="/home"> <img alt="..." src="/assets/logo.png" className="logo" /></Link>
             <p className="title">Rejoindre MinuteBrico</p>
             <form onSubmit={(e)=>{
               e.preventDefault()

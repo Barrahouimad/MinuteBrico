@@ -6,10 +6,10 @@ import Footer from '../Components/home/Footer';
 import Comment from '../Components/home/Comment';
 import Nav from '../Components/home/nav';
 
-function Home1() {
+function Home1(props) {
   return (
     <>
-      <Nav/>
+      <Nav user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} />
       <HeroSection />
       <Comment />
       <Cards />

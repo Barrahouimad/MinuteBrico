@@ -2,7 +2,7 @@ import React from 'react'
 
 const Pagination =({totalcartes,carteparpage,paginate})=>{
   const pageNumbers=[];
-    
+    console.log("buttons number :"+totalcartes+carteparpage);
   for(let i=1; i<=Math.ceil(totalcartes/carteparpage);i++){
       pageNumbers.push(i);
   }

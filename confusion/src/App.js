@@ -1,16 +1,22 @@
 import './App.css';
-import React from 'react'
-import store from './Shared/store';
+import React, { useEffect } from 'react'
+import Store from './Shared/store';
 import Main from './Views/MainComponent'; 
 import {BrowserRouter } from 'react-router-dom';
 
-export const ThemeContext= React.createContext(store);
+export const ThemeContext= React.createContext(Store);
 
 function App() {
-  
+  const [Auth,setAuth]=React.useState(false);
+  const [user,setId]=React.useState({
+    id:null,
+    firstName:"",
+    lastName:"",
+    email:""
+  });
 
   return (
-    <ThemeContext.Provider value={store}>
+    <ThemeContext.Provider value={{Auth,setAuth,user,setId}}>
     <div className="App">
 
       <BrowserRouter>
@@ -20,6 +26,10 @@ function App() {
     </div>
    </ThemeContext.Provider>
   );
+
+ 
+  
+
 }
 
 export default App;

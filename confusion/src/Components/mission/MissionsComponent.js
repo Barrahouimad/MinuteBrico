@@ -5,11 +5,12 @@ import MissionItems from './CarteMissionComponent';
 import './mission.css'
 import Footer from '../home/Footer';
 import Pagination from './PaginationComponent';
-const Mission = ()=>{
+const Mission = (props)=>{
+
   const[categorie,setCategorie]=React.useState('Tout');
   const[radioBoutton,setradioBoutton]=React.useState(2);
  const [categories,setCategories]=React.useState([]);
- const [donnee,setdonnee]=React.useState(["Menuiserie"]);
+ const [donnee,setdonnee]=React.useState(["Jardinage","Electromenager"]);
 const [motcle,setMotcle]=React.useState(' ');
 const[currentpage,setCurrentpage]=React.useState(1);
 const[postperpage,setPostperpage]=React.useState(4);
@@ -22,6 +23,14 @@ const paginate= pageNumber=>setCurrentpage(pageNumber);
       setradioBoutton(1);
       console.log("from realisée  "+radioBoutton);
 
+  }
+  function objToTab(obj){
+    const tab=[];
+       for(let i=0;i<(obj.length);i++){
+          tab.push(obj[i].nom);
+       }
+       //console.log("from tab : "+tab);
+       return tab;
   }
   function radioHandlerNon(event){
 
@@ -68,7 +77,7 @@ const fetcher = (url) => fetch(url).then(res =>{return res.json()} )
  const { data, error } = useSWR('http://localhost:8080/missions', fetcher)
     if (error) return (
             <div className="d-flex flex-column">
-              <img alt="..." src="/assets/logo.png" className="logo" />
+              <img alt="..." src="/assets/logo.png" style={{height:"100px",width:"100px"}} className="logo" />
 
                 <p className="text-danger">failed to load</p>
 
@@ -105,16 +114,17 @@ const fetcher = (url) => fetch(url).then(res =>{return res.json()} )
   </div>);}
 
 
-//alert(data);
+//
 const currentCartes=data.slice(indexOfFirstCarte,indexOfLastCarte);
+//alert(currentCartes[0].id);
 //setNombrecarte(data.length);
 
 
-console.log("nombre de cartes   : "+data.length+" categories empty ?"+(categories.length==0)+" les donnéesss  "+((data[0].categories.filter((y)=>(donnee.includes("hh"))).length==1)?true:false)+"  second   "+data.filter((x)=>((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true)));
+console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].categories.filter((y)=>(donnee.includes("hh"))).length==1)?true:false)+"  second compare arrays  "+data.filter((x)=>((JSON.stringify(objToTab(x.categories))===JSON.stringify(donnee)))));
     return(
    <div  id="mission"  className="fluid-container" className="d-flex flex-column">
        <div id="briconav" style={{position:"absolute",top:"0px",zIndex:"1"}}>
-       <Nav/>
+       <Nav user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} />
        </div>
        <div id="bricotext" className="d-flex justify-content-center flex-row" style={{border:"1px",textDecorationColor:"black",height:"100px",width:"100%",background:"#FFFFFF",position:"absolute",top:"160px",alignItems:"center"}}>
        
@@ -195,7 +205,8 @@ console.log("nombre de cartes   : "+data.length+" categories empty ?"+(categorie
                 
                    <div className="col-md-7"  style={{background:"white",position:"relative",top:"14px",left:"30px",height:"650px"}}>
                        <div style={{position:"relative",top:"10px",left:"45%"}}>
-                      <Pagination totalcartes={data.length} carteparpage={postperpage} paginate={paginate} />
+                      <Pagination totalcartes={data.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||(((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
+                      carteparpage={postperpage} paginate={paginate} />
 
                       </div>
 
@@ -204,9 +215,8 @@ console.log("nombre de cartes   : "+data.length+" categories empty ?"+(categorie
                       </div>
 
                       <div id="box"  style={{ borderRadius:"2px",height:"90%",width:"96%",position:"realative",top:"40px"}} > 
-                          
-                        <MissionItems data={currentCartes.filter((x)=>((((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true) && (x.description.includes(motcle)) )||(((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true) && (motcle==' ') )||((categories.length==0)  && (x.description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
-                      
+                       <MissionItems user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} data={currentCartes.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
+                       
                       </div>
                   </div>
                   </div>
