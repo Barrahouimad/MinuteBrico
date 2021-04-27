@@ -2,16 +2,19 @@ import React from 'react'
 
 
 const Store=()=>{
-    const [auth,setAuth]=React.useState(false);
-    const store1={
-        name:"{fullName}",
-        id:"{id}",
-        role:"{role}",
-        Auth:{auth,setAuth}
+    const [store,setStore]=React.useState({value:'',auth:null,list:[]});
+    const actions=(action)=> {
+      const   {type,payload}=action;
+      switch(type){
+          case 'setStore':
+              return setStore(payload);
+              break;
+          default :
+              return store;
+      }
      
     }
-   return(
-       {store1}
-   );
+   return {store,actions}
+ 
 }
 export default Store;

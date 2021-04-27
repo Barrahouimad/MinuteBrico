@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import Store from './Shared/store';
 import Main from './Views/MainComponent'; 
 import {BrowserRouter } from 'react-router-dom';
+import Context from './Shared/context';
 
 export const ThemeContext= React.createContext(Store);
 
@@ -14,17 +15,23 @@ function App() {
     lastName:"",
     email:""
   });
+//the second store 
 
+const store = Store();
   return (
+   <Context.Provider value={store}>
+
     <ThemeContext.Provider value={{Auth,setAuth,user,setId}}>
-    <div className="App">
+      <div className="App">
 
-      <BrowserRouter>
-         <Main/>
-     </BrowserRouter>
+          <BrowserRouter>
+            <Main/>
+          </BrowserRouter>
 
-    </div>
+      </div>
    </ThemeContext.Provider>
+
+   </Context.Provider>
   );
 
  
