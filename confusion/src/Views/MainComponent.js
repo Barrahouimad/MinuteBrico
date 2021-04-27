@@ -20,18 +20,20 @@ const Main = ()=>{
 const [data,setData]=useState([]);
 
 //read data based on token
+useEffect(()=>{
+   Axios.get("http://localhost:8080/bricoleurtoken/"+ Cookies.get('Token'))
 
-Axios.get("http://localhost:8080/bricoleurtoken/"+ Cookies.get('Token'))
+   .then(res=>{
+        console.log("reponse du db sur login  : "+res.data.id);
+        if(res.data.length!=0){
+        setData(res.data);
+        }
+    })  
+    .catch(err =>{
+      console.log("still have error ",err);
+    })
+},[Cookies.get('Token')])
 
- .then(res=>{
-      console.log("reponse du db sur login  : "+res.data.id);
-      if(res.data.length!=0){
-      setData(res.data);
-      }
-  })  
-  .catch(err =>{
-    console.log("still have error ",err);
-  })
 
 
   //stoor.setAuth(true);

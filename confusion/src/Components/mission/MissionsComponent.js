@@ -124,7 +124,7 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
     return(
    <div  id="mission"  className="fluid-container" className="d-flex flex-column">
        <div id="briconav" style={{position:"absolute",top:"0px",zIndex:"1"}}>
-       <Nav user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} />
+       <Nav data={props.data} />
        </div>
        <div id="bricotext" className="d-flex justify-content-center flex-row" style={{border:"1px",textDecorationColor:"black",height:"100px",width:"100%",background:"#FFFFFF",position:"absolute",top:"160px",alignItems:"center"}}>
        

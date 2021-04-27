@@ -3,8 +3,8 @@ import Axios from 'axios'
 const MissionItems= (props)=>{
 
    const handelPostule=(id)=> {
-      console.log(" the id mission : "+id+" with id brico : "+props.user.id);
-      if(props.user.id==null){
+      console.log(" the id mission : "+id+" with id brico : "+props.user.id+(props.user.id==null));
+      if(props.user.length!=0){
          Axios.get("http://localhost:8080/bricoaumission/"+props.user.id+"/"+id)
           .catch(err =>{
             console.log("still have error ",err);

@@ -23,7 +23,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
             <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="assets/career.png"/>
           </div>
           <p className="p-2">{props.data.firstName+" "+props.data.lastName}</p>
-          <button onClick={()=>{Cookies.set('Token',null)}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
+          <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
         </div>
       </div>
     );
