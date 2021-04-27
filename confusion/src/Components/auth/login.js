@@ -7,9 +7,7 @@ import SweetAlert from 'sweetalert2-react';
 import Cookie from 'js-cookie';
 import Context from '../../Shared/context'
 const Login =(props)=> {
-  //the new store
-  const {store,actions}=useContext(Context);
-
+  
 
   const [showErr,setShowErr]=useState(false);
   const [email,setemail]=useState('');
@@ -46,9 +44,7 @@ const Login =(props)=> {
         props.setAuth(true);
         seteffect(true);
         console.log("the new auth  "+props.auth+"the user : "+props.user.email)
-       // the new store 
-       actions({type:'setStore',payload:{...store,auth:true}})
-
+     
 
       }else{
         props.setAuth(false);

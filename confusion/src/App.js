@@ -15,11 +15,9 @@ function App() {
     lastName:"",
     email:""
   });
-//the second store 
 
-const store = Store();
   return (
-   <Context.Provider value={store}>
+
 
     <ThemeContext.Provider value={{Auth,setAuth,user,setId}}>
       <div className="App">
@@ -31,7 +29,6 @@ const store = Store();
       </div>
    </ThemeContext.Provider>
 
-   </Context.Provider>
   );
 
  

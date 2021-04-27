@@ -15,10 +15,8 @@ import { StoreTwoTone } from '@material-ui/icons';
 const Main = ()=>{
    const stoor=useContext(ThemeContext);
   //stoor.setAuth(true);
- // console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id);  
-  const {store,actions}=useContext(Context);
-  console.log("from main storeTwo value in main : "+store.auth+ "  the id is : ");  
-
+ console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id);  
+ 
    return(
       <div>
          <Switch>
