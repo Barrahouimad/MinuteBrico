@@ -9,7 +9,7 @@ import Nav from '../Components/home/nav';
 function Home1(props) {
   return (
     <>
-      <Nav user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} />
+      <Nav data={props.data}  />
       <HeroSection />
       <Comment />
       <Cards />

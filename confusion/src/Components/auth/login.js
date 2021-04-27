@@ -4,7 +4,7 @@ import InputComp from "./inputComp"
 import {Link} from "react-router-dom"
 import Axios from "axios"
 import SweetAlert from 'sweetalert2-react';
-import Cookie from 'js-cookie';
+import Cookies from 'js-cookie';
 import Context from '../../Shared/context'
 const Login =(props)=> {
   
@@ -32,22 +32,12 @@ const Login =(props)=> {
 
       console.log("reponse du db sur login  : "+res.data[0].id);
       if(res.data.length!=0){
-       // Try(res,props.setId,props.setAuth,props.auth);
-     
-        // document.location.href="http://localhost:3000/home"
-        props.setId({id: res.data[0].id,
-          firstName:res.data[0].firstName,
-          lastName:res.data[0].lastName,
-          email:res.data[0].email});
-    
-    
-        props.setAuth(true);
-        seteffect(true);
-        console.log("the new auth  "+props.auth+"the user : "+props.user.email)
-     
-
+ 
+     // the cookie 
+       Cookies.set('Token',res.data[0].token)
+       document.location.href="http://localhost:3000/home";
       }else{
-        props.setAuth(false);
+  
         setShowErr(true);
         console.log("the new auth in else "+props.auth)
 
@@ -61,12 +51,7 @@ const Login =(props)=> {
   }
 //function Try(res,setId,setAuth,auth){
  // console.log("from try : "+res.data);
-   useEffect(()=>{
-     if(effect)
-    { console.log("from try/effect : "+props.auth);
-    props.setAuth(true);}
-    
-   },[props.auth]);
+  
 
 //}
     return (

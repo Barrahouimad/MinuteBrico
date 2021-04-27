@@ -90,7 +90,7 @@ const Missions= data.missions.map((item)=>{
     });
 
     return(<div>
-        <Nav user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} />
+        <Nav data={props.user} />
         <div style={{position:"relative",top:"100px"}} >
         {Missions}
         </div>

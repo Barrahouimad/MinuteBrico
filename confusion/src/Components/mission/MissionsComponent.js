@@ -215,7 +215,7 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                       </div>
 
                       <div id="box"  style={{ borderRadius:"2px",height:"90%",width:"96%",position:"realative",top:"40px"}} > 
-                       <MissionItems user={props.user} setUser={props.setId} auth={props.auth} setAuth={props.setAuth} data={currentCartes.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
+                       <MissionItems user={props.data} data={currentCartes.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
                        
                       </div>
                   </div>
