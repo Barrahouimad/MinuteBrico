@@ -9,7 +9,7 @@ import Signup from '../Components/auth/signup';
 import SignUpEtape2 from '../Components/auth/signUpEtape2';
 import Login from '../Components/auth/login' ;
 import { Redirect, Switch,Route}  from 'react-router-dom';
-
+import PostuleMission from '../Components/mission/postuleMissions'
 const Main = ()=>{
    const stoor=useContext(ThemeContext);
   //stoor.setAuth(true);
@@ -27,8 +27,9 @@ const Main = ()=>{
              <Route path='/home' component={()=><Home1 user={stoor.user} setId={stoor.setId} auth={stoor.Auth} setAuth={stoor.setAuth} />}/>
              <Route path='/missions' component={()=><Mission user={stoor.user} setId={stoor.setId} auth={stoor.Auth} setAuth={stoor.setAuth}/>}/>
              <Route path='/sign-up' component={Signup}/>
-             <Route path='/signup' component={SignUpEtape2}/>
+             <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login user={stoor.user} setId={stoor.setId} auth={stoor.Auth} setAuth={stoor.setAuth} />} />
+             <Route path='/postulemissions' component={()=> <PostuleMission user={stoor.user} setId={stoor.setId} auth={stoor.Auth} setAuth={stoor.setAuth}/> }/>
                
              <Redirect to="/home"/>
          </Switch>

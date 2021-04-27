@@ -4,12 +4,13 @@ import InputComp from "./inputComp"
 import {Link} from "react-router-dom"
 import Axios from "axios"
 import SweetAlert from 'sweetalert2-react';
-
+import Cookie from 'js-cookie';
 const Login =(props)=> {
 
   const [showErr,setShowErr]=useState(false);
   const [email,setemail]=useState('');
   const [password,setpassword]=useState('');
+  const [effect,seteffect]=useState(false);
 
 
 
@@ -17,34 +18,34 @@ const Login =(props)=> {
  
   setemail(document.getElementById("Idemail").value);
   setpassword( document.getElementById("Idpassword").value);
-    console.log("in verify : "+email);
+    console.log("input in function verify : "+email);
  console.log(" the get axios : http://localhost:8080/ClientChek/"+email+"/"+password)
 
 
-   Axios.get("http://localhost:8080/ClientChek/"+email+"/"+password)
+   Axios.get("http://localhost:8080/bricoleursCheck/"+email+"/"+password)
 
     
 
  .then(res=>{
 
-      console.log("reponse sur login  : "+res.data[0].id);
+      console.log("reponse du db sur login  : "+res.data[0].id);
       if(res.data.length!=0){
-    
-          props.setId({id: res.data[0].id,
-            firstName:res.data[0].firstName,
-            lastName:res.data[0].lastName,
-            email:res.data[0].email});
+       // Try(res,props.setId,props.setAuth,props.auth);
      
-        
-          props.setAuth(true);
-      
-        console.log("the new auth  "+props.auth+"the user : "+props.user.email)
         // document.location.href="http://localhost:3000/home"
-      
+        props.setId({id: res.data[0].id,
+          firstName:res.data[0].firstName,
+          lastName:res.data[0].lastName,
+          email:res.data[0].email});
+    
+    
+        props.setAuth(true);
+        seteffect(true);
+        console.log("the new auth  "+props.auth+"the user : "+props.user.email)
       }else{
         props.setAuth(false);
         setShowErr(true);
-        console.log("the new auth in false "+props.auth)
+        console.log("the new auth in else "+props.auth)
 
       }
 
@@ -54,14 +55,16 @@ const Login =(props)=> {
   })  
 
   }
+//function Try(res,setId,setAuth,auth){
+ // console.log("from try : "+res.data);
+   useEffect(()=>{
+     if(effect)
+    { console.log("from try/effect : "+props.auth);
+    props.setAuth(true);}
+    
+   },[props.auth]);
 
-   /*useEffect(()=>{
-    console.log("here the effect of login");
-     if(email.length!=0)
-    { console.log("email in effect : "+email);
-       Verify()}
-   },[props.auth]);*/
-
+//}
     return (
       <div className="_Signup">
           <div className="SignUpPage">

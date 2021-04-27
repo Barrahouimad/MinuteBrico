@@ -15,9 +15,13 @@ import './style.css';
         <ul className="auth">
           <Link to="/login" ><li className="seconnect">Se connecter</li></Link>
           <Link to="/sign-up" ><li className="signup">S'incrire</li></Link>
-        </ul>:<div>
-          <p>{props.user.lastName}</p>
-          <button className="btn btn-outline-danger">Logout </button>
+        </ul>:<div className="d-flex content-justify-between">
+        <Link className="p-2" to="/postulemissions" >Mes postules</Link>
+          <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
+            <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="assets/career.png"/>
+          </div>
+          <p className="p-2">{props.user.firstName+" "+props.user.lastName}</p>
+          <button onClick={()=>{props.setAuth(false); console.log("from logout : auth : "+props.auth)}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
         </div>
         
         }
