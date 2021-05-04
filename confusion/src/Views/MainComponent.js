@@ -5,7 +5,7 @@ import {ThemeContext} from '../App'
 import Home from '../Components/HomeComponent';
 import Home1 from './Home1';
 import Protectedroute from './ProtectedRoute';
-import Signup from '../Components/auth/signup';
+import ContainerAuth from '../Components/auth/authentification/containerAuth';
 import SignUpEtape2 from '../Components/auth/signUpEtape2';
 import Login from '../Components/auth/login' ;
 import { Redirect, Switch,Route}  from 'react-router-dom';
@@ -45,7 +45,7 @@ useEffect(()=>{
             <Route exact path='/' component={()=><Home1 data={data}  />}/>
              <Route path='/home' component={()=><Home1  data={data}  />}/>
              <Route path='/missions' component={()=><Mission  data={data} />}/>
-             <Route path='/sign-up' component={Signup}/>
+             <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />
              <Route path='/postulemissions' component={()=> <PostuleMission  user={data} /> }/>

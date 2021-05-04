@@ -1,6 +1,9 @@
 import React from 'react';
 import useSWR from 'swr'
 import Nav from '../home/nav';
+import './mission.css';
+import '../home/Cards.css';
+ import CardItem from '../home/CardItem';
 const PostuleMission=(props)=>{
     
 const fetcher = (url) => fetch(url).then(res =>{return res.json()} )
@@ -51,51 +54,32 @@ const Missions= data.missions.map((item)=>{
 
     const id=item.id;
        return(
-            
-           <div  key={item.id} className="container mt-2" >
-              <div className="card  text-white" style={{color:"white" , borderRadius:"5px",border:"solid" }}>  
-         
-              <div className="card-img ">
-                    <div id="carouselExampleSlidesOnly"  className="carousel slide " data-bs-ride="carousel">
-                        <div className="carousel-inner " >
-                                <div className="carousel-item active">
-                                <img id="missionImage" style={{height:"200px",width:"850px", borderRadius:"5px"}} src={item.images}/>
-                                </div>
-                                <div className="carousel-item">
-                                <img style={{height:"200px",width:"850px", borderRadius:"5px"}} src={item.images}/>
-                                </div>
-                                <div className="carousel-item">
-                                <img style={{height:"200px",width:"850px", borderRadius:"5px"}} src={item.images}/>
-                                </div>
-                       </div>
-                 </div>
-                 </div>
-                        <div className="card-img-overlay">
-                            <div className="d-flex flex-column" style={{border:"1px  #91091E",opacity: "0.5",width:"350px" , height:"150px",background:"gray"}}>
-                                 <h3 className="card-title " style={{color:"#D1653E",fontFamily:"'Lato', sans-serif",position:"relative",left:"-110px"}}>{item.titre_mission}</h3>
-                                 <p className="card-text" style={{fontFamily:"'Lato', sans-serif",marginRight:"120px"}}>{item.mission_description}</p>
-                               <div className="d-flex flex-row">
-                               {item.categories.map((x)=>{
-                                  return(<p className="p-1 fw-light bg-success" key={x.id}>{ x.nom} </p>); 
-                                 })}
-                               </div>
-                                 
-                            </div>
-                        </div>
-             </div>
-
-           </div>
-      
+        <div className='cards'>
+        <div className='cards__container'>
+     
+           
+              <CardItem
+                key={item.id}
+                src={item.images}
+                text={item.mission_description}
+                label={item.titre_mission}
+                path='/comment'
+              />
+      </div>
+    </div>
        )
     });
 
-    return(<div>
+    return(
+    <div >
+      <div id="postulemission"></div>
         <Nav data={props.user} />
-        <div style={{position:"relative",top:"100px"}} >
-        {Missions}
-        </div>
+           <div id="postulebox">
+           <h1>MinuteBlog</h1>
+             {Missions}
+           </div>
                    
-                    </div>
+    </div>
                );
 }
 

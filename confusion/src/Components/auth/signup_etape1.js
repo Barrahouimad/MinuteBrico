@@ -11,6 +11,7 @@ export default class SignUpEtape1 extends Component {
     showErr : false,
     showSuc:false
   }
+  
   save(props){
     var pass1 = document.getElementById("pass1")
     var pass2 = document.getElementById("pass2")
@@ -37,7 +38,7 @@ export default class SignUpEtape1 extends Component {
     }
   }
   
-
+//ici 
  generateString(length) {
    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = ' ';
@@ -47,6 +48,10 @@ export default class SignUpEtape1 extends Component {
     }
 
     return result;
+    /*const token=this.generateString(10);
+    const href="http://localhost:3000/bricosignup/"+token;
+      token:token,
+            role:"Bricoleur"*/
 }
 
 
@@ -58,17 +63,17 @@ export default class SignUpEtape1 extends Component {
         var pass2 = document.getElementById("pass2")
         var email = document.getElementById("IdEmail")
         var password = document.getElementById("pass1")
-        if(pass1.value===pass2.value && pass1.value!=null){
+        if(pass1.value===pass2.value && password.value!=null){
     
           Axios.post("http://localhost:8080/bricoleurs",{
             email : email.value,
             password : password.value,
-            token:token
-               //"iliass@gmail.com"
+            token:token,
+            role:"Bricoleur"
        })
           .then(res=>{
             this.setState({ showSuc: true })
-            document.location.href=href;
+           // document.location.href=href;
           })
           .catch(err =>{
             this.setState({

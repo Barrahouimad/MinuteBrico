@@ -7,18 +7,17 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
 
  const Nav=(props)=>   {
 
-  if(props.data.length!=0){
+  if(props.data.length!=0 && props.data.role=="Bricoleur"){
 
 
     return (
       <div className="navbar">
         <Link to="/home"><img alt="..." src="/assets/logo.png" className="logo" /></Link>
         <ul className="center">
-          <Link to="/how-it-works" ><li>Comment ça marche</li></Link>
           <Link to="/missions" ><li>Missions</li></Link>
+          <Link id="mespostules" className="p-2" to="/postulemissions" >Mes postules</Link>
         </ul>
   <div className="d-flex content-justify-between">
-        <Link className="p-2" to="/postulemissions" >Mes postules</Link>
           <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
             <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="assets/career.png"/>
           </div>

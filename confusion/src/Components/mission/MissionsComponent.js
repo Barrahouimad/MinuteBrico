@@ -69,6 +69,7 @@ const paginate= pageNumber=>setCurrentpage(pageNumber);
  
   }
     function handelmotcle(){
+   
       setMotcle(document.getElementById("motcle").value);
     }
 
@@ -213,11 +214,14 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                       <div className="container">
                           <hr />
                       </div>
+                   
 
                       <div id="box"  style={{ borderRadius:"2px",height:"90%",width:"96%",position:"realative",top:"40px"}} > 
                        <MissionItems user={props.data} data={currentCartes.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
                        
                       </div>
+                      <Pagination totalcartes={data.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||(((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
+                      carteparpage={postperpage} paginate={paginate} />
                   </div>
                   </div>
           </div>

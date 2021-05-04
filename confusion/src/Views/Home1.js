@@ -10,7 +10,7 @@ function Home1(props) {
   return (
     <>
       <Nav data={props.data}  />
-      <HeroSection />
+      <HeroSection data={props.data} />
       <Comment />
       <Cards />
       <Footer />
