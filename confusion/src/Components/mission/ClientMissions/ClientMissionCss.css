@@ -1,0 +1,21 @@
+#ClientMissions{
+
+    position:absolute;
+    bottom:0px;
+    top:0px;
+    right:0px;
+    left:0px;
+    background: #ddcec7;
+    background-size: cover;
+}
+#container{
+    position:absolute;
+    left:0%;
+    right:0px;
+    top:150px;
+    color:rgb(156, 148, 148);
+}
+h1{
+    color:white;
+    font-size:30px;
+}

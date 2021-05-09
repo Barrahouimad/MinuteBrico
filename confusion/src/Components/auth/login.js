@@ -12,19 +12,28 @@ const Login =(props)=> {
   const [showErr,setShowErr]=useState(false);
   const [email,setemail]=useState('');
   const [password,setpassword]=useState('');
+  const [brico,setBrico]=useState(false);
+
   const [effect,seteffect]=useState(false);
 
 
 
  function Verify (){
- 
   setemail(document.getElementById("Idemail").value);
   setpassword( document.getElementById("Idpassword").value);
+  setBrico( document.getElementById("estBrico").checked);
+  var href;
+  if(brico){
+    href="http://localhost:8080/bricoleursCheck/"+email+"/"+password;
+  }else{
+    href="http://localhost:8080/ClientAccount/"+email+"/"+password;
+  }
+   alert(href);
     console.log("input in function verify : "+email);
- console.log(" the get axios : http://localhost:8080/ClientChek/"+email+"/"+password)
+ console.log(" the get axios : http://localhost:8080/ClientAccount/"+email+"/"+password)
 
 
-   Axios.get("http://localhost:8080/bricoleursCheck/"+email+"/"+password)
+   Axios.get(href)
 
     
 
@@ -35,6 +44,7 @@ const Login =(props)=> {
  
      // the cookie 
        Cookies.set('Token',res.data[0].token)
+       Cookies.set('Role',res.data[0].role)
        document.location.href="http://localhost:3000/home";
       }else{
   
@@ -71,6 +81,11 @@ const Login =(props)=> {
             }}>
                 <InputComp className="AdreesInput" title="Adresse e-mail" placeHolder="Adresse e-mail" type="email" name="email" Id="Idemail"/>
                 <InputComp className="passwordInput" title="Mot de passe" placeHolder="Mot de passe" type="password" name="password" Id="Idpassword"/>
+               
+                <input class="form-check-input" type="checkbox"   id="estBrico"/>
+                <label class="form-check-label mx-5" for="flexCheckDefault">
+                  Bricoleur ?
+                </label>
                 <input type="submit" className="Submit" value="Se connecte" />
             </form>
             <div className="Or">

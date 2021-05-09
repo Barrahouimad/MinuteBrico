@@ -10,6 +10,8 @@ import SignUpEtape2 from '../Components/auth/signUpEtape2';
 import Login from '../Components/auth/login' ;
 import { Redirect, Switch,Route}  from 'react-router-dom';
 import PostuleMission from '../Components/mission/postuleMissions';
+import ClientMissions from '../Components/mission/ClientMissions/ClientMisions'
+import DetailsMissions from '../Components/mission/ClientMissions/Detailsmission'
 import Cookies from 'js-cookie';
 import Axios from "axios"
 import Context from '../Shared/context';
@@ -18,21 +20,27 @@ const Main = ()=>{
    const stoor=useContext(ThemeContext);
 //the data 
 const [data,setData]=useState([]);
-
+var href;
+if(Cookies.get('Role')=="Bricoleur"){
+   href="http://localhost:8080/bricoleurtoken/"+ Cookies.get('Token');
+ }else{
+   href="http://localhost:8080/Clienttoken/"+ Cookies.get('Token');
+ }
 //read data based on token
 useEffect(()=>{
-   Axios.get("http://localhost:8080/bricoleurtoken/"+ Cookies.get('Token'))
+   Axios.get(href)
 
    .then(res=>{
         console.log("reponse du db sur login  : "+res.data.id);
         if(res.data.length!=0){
+          // alert(res.data);
         setData(res.data);
         }
     })  
     .catch(err =>{
       console.log("still have error ",err);
     })
-},[Cookies.get('Token')])
+},[Cookies.get('Token'),Cookies.get('Role')])
 
 
 
@@ -49,7 +57,8 @@ useEffect(()=>{
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />
              <Route path='/postulemissions' component={()=> <PostuleMission  user={data} /> }/>
-               
+             <Route path='/Mesmissions' component={()=><ClientMissions data={data}/> }/>
+             <Route path='/carddetails/' component={()=><DetailsMissions data={data}/> }/>
              <Redirect to="/home"/>
          </Switch>
 
