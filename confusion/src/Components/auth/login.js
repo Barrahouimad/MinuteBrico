@@ -28,7 +28,7 @@ const Login =(props)=> {
   }else{
     href="http://localhost:8080/ClientAccount/"+email+"/"+password;
   }
-   alert(href);
+   //alert(href);
     console.log("input in function verify : "+email);
  console.log(" the get axios : http://localhost:8080/ClientAccount/"+email+"/"+password)
 

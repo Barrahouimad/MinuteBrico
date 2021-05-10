@@ -13,8 +13,15 @@ const MissionItems= (props)=>{
       document.location.href="http://localhost:3000/login"
      }
    }
-
- const Missions= props.data.map((item)=>{
+var Missions=()=>{
+   return(
+      <div>
+         
+      </div>
+   );
+};
+if(props.data.length!=0){
+  Missions= props.data.map((item)=>{
     console.log("hello"+ item.id);
 
     const id=item.id;
@@ -57,7 +64,7 @@ const MissionItems= (props)=>{
       
        )
     });
-
+   }
     return(<div>
                     {Missions}
                     </div>

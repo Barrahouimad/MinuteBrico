@@ -19,3 +19,13 @@ h1{
     color:white;
     font-size:30px;
 }
+#detailsMissions{
+    position:absolute;
+    top:150px;
+    right:0px;
+    left:0px;
+    bottom:0px;
+    background:#ddcec7;
+    background-size: cover;
+    overflow-y: scroll;
+}

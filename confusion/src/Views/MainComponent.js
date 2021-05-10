@@ -10,7 +10,7 @@ import SignUpEtape2 from '../Components/auth/signUpEtape2';
 import Login from '../Components/auth/login' ;
 import { Redirect, Switch,Route}  from 'react-router-dom';
 import PostuleMission from '../Components/mission/postuleMissions';
-import ClientMissions from '../Components/mission/ClientMissions/ClientMisions'
+import ClientMissions from '../Components/mission/ClientMissions/ClientMisions';
 import DetailsMissions from '../Components/mission/ClientMissions/Detailsmission'
 import Cookies from 'js-cookie';
 import Axios from "axios"
@@ -31,7 +31,7 @@ useEffect(()=>{
    Axios.get(href)
 
    .then(res=>{
-        console.log("reponse du db sur login  : "+res.data.id);
+        console.log("reponse du db sur login effect  : "+res.data.id);
         if(res.data.length!=0){
           // alert(res.data);
         setData(res.data);
@@ -40,12 +40,12 @@ useEffect(()=>{
     .catch(err =>{
       console.log("still have error ",err);
     })
-},[Cookies.get('Token'),Cookies.get('Role')])
+},[])
 
 
 
   //stoor.setAuth(true);
- console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id);  
+ console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id+" data "+data);  
  
    return(
       <div>

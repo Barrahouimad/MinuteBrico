@@ -7,7 +7,7 @@ const Carte =(props)=>{
     if(props.data!=null) {format=props.data.map((item)=>{
         return(
             <div key={item.id} className="mt-3 row justify-content-center">
-                 <div style={{height:"200px", boxShadow:"2px 3px 20px 12px",borderRadius:"5px" }} className="col-md-6 col-xs-10">
+                 <div style={{height:"200px", boxShadow:"0px 3px 20px 12px",borderRadius:"5px" }} className="col-md-6 col-xs-10">
                     <div className="card">
                        <h3 style={{position:"absolute", left:"9px"}} > {item.titre_mission}</h3>
                        <div className="mt-4 card-body">
