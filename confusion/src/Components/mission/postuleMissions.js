@@ -1,11 +1,23 @@
 import React from 'react';
 import useSWR from 'swr'
+import Axios from "axios"
 import Nav from '../home/nav';
 import './mission.css';
 import '../home/Cards.css';
  import CardItem from '../home/CardItem';
 const PostuleMission=(props)=>{
-    
+  const handelAccept =(mission)=>{
+    alert("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
+    Axios.put("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
+ 
+      .then(res=>{
+         
+      })
+      .catch(err =>{
+       alert(err)
+          })
+  }  
+
 const fetcher = (url) => fetch(url).then(res =>{return res.json()} )
 const { data, error } = useSWR('http://localhost:8080/bricoleurs/'+props.user.id, fetcher)
    if (error) return (
@@ -65,6 +77,11 @@ const Missions= data.missions.map((item)=>{
                 label={item.titre_mission}
                 path='/comment'
               />
+              
+              <div className="d-flex flex-row align-items-around p-3">
+                  <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
+                  <button className="btn btn-outline-danger">Refuser</button>
+              </div>
       </div>
     </div>
        )

@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Axios from 'axios'
+import SweetAlert from 'sweetalert2-react';
 const MissionItems= (props)=>{
-
+   const [show,setShow]=useState(false);
    const handelPostule=(id)=> {
       console.log(" the id mission : "+id+" with id brico : "+props.user.id+(props.user.id==null));
       if(props.user.length!=0){
@@ -9,6 +10,7 @@ const MissionItems= (props)=>{
           .catch(err =>{
             console.log("still have error ",err);
           })
+          setShow(true);
       }else{
       document.location.href="http://localhost:3000/login"
      }
@@ -66,6 +68,15 @@ if(props.data.length!=0){
     });
    }
     return(<div>
+        <SweetAlert
+              show={show}
+              title="Congratulations"
+              icon='warning'
+              text="Vous avez bien postuler à cette mission"
+              onConfirm={() => {
+                setShow(false)
+              }}
+            />
                     {Missions}
                     </div>
                );
