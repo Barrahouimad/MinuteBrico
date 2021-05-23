@@ -7,25 +7,28 @@ const CarteBrico =(props)=>{
       const [show,setShow]=useState(false);
      
       const handelAccept =(brico)=>{
-        alert("http://localhost:8080/ClientAccept/"+brico+"/"+props.missionId+"/1")
+       // alert("http://localhost:8080/ClientAccept/"+brico+"/"+props.missionId+"/1")
         Axios.put("http://localhost:8080/ClientAccept/"+brico+"/"+props.missionId+"/1")
      
           .then(res=>{
-             
+            setShow(true)
           })
           .catch(err =>{
            alert(err)
               })
       }
+React.useEffect(()=>{
+  Axios.get( "http://localhost:8080/Bricoofmissions/"+props.missionId)
 
-    Axios.get( "http://localhost:8080/Bricoofmissions/"+props.missionId)
-
-    .then(res=>{
-         setBrico(res.data);
-     })  
-     .catch(err =>{
-       console.log("still have error ",err);
-     })
+  .then(res=>{
+       setBrico(res.data);
+      
+   })  
+   .catch(err =>{
+     console.log("still have error ",err);
+   })
+},[])
+   
     
 const carte=brico.map((brico)=>{
   return(
@@ -51,7 +54,7 @@ const carte=brico.map((brico)=>{
               show={show}
               title="Success"
               icon='warning'
-              text="Merci de verifier votre boite email!"
+              text="Merci ! On attend maintenant la réponse du bricoleur"
               onConfirm={() => {
                 setShow(false)
               }}

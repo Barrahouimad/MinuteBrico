@@ -49,10 +49,11 @@ useEffect(()=>{
  
    return(
       <div>
-         <Switch>
-            <Route exact path='/' component={()=><Home1 data={data}  />}/>
+        <Switch>
+             <Route exact path='/' component={()=><Home1 data={data}  />}/>
              <Route path='/home' component={()=><Home1  data={data}  />}/>
              <Route path='/missions' component={()=><Mission  data={data} />}/>
+             <Route path='/CreateMission' />
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />

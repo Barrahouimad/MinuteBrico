@@ -1,17 +1,20 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import useSWR from 'swr'
 import Axios from "axios"
 import Nav from '../home/nav';
 import './mission.css';
 import '../home/Cards.css';
  import CardItem from '../home/CardItem';
+ import SweetAlert from 'sweetalert2-react';
+
 const PostuleMission=(props)=>{
+  const [show,setShow]=useState(false);
   const handelAccept =(mission)=>{
-    alert("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
+    //alert("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
     Axios.put("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
  
       .then(res=>{
-         
+        setShow(true)
       })
       .catch(err =>{
        alert(err)
@@ -77,11 +80,11 @@ const Missions= data.missions.map((item)=>{
                 label={item.titre_mission}
                 path='/comment'
               />
-              
-              <div className="d-flex flex-row align-items-around p-3">
+              {(item.etat_mission==2)?  <div className="d-flex flex-row align-items-around p-3">
                   <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
                   <button className="btn btn-outline-danger">Refuser</button>
-              </div>
+              </div>:((item.etat_mission==1)?<div style={{color:"green",fontSize:"2em"}} ><p>Vous l'avais accepté</p></div>:<div style={{color:"red",fontSize:"2em"}} >Pas de réponse</div>)}
+            
       </div>
     </div>
        )
@@ -93,6 +96,15 @@ const Missions= data.missions.map((item)=>{
         <Nav data={props.user} />
            <div id="postulebox">
            <h1>MinuteBlog</h1>
+           <SweetAlert
+              show={show}
+              title="Success"
+              icon='warning'
+              text="Congratulations vous avez bien obtenu la mission"
+              onConfirm={() => {
+                setShow(false)
+              }}
+            />
              {Missions}
            </div>
                    

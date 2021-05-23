@@ -65,7 +65,7 @@ const paginate= pageNumber=>setCurrentpage(pageNumber);
       setCategories(categories.filter(x=>x!==event.target.value));
       console.log("from focus deleted "+categories.filter(x=>x!==event.target.value));
     }
-    console.log("categories : focus "+categories);
+    console.log("categories : focus :"+categories);
  
   }
     function handelmotcle(){
