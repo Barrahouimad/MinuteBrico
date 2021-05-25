@@ -1,0 +1,93 @@
+import React, { Component } from 'react';
+import Axios from 'axios'
+import Select from 'react-select'
+
+
+export class FormPay extends Component {
+
+    continue = (input) => {
+        const data={ 
+            interval_temps: 480000,
+            categorie:[input.category],
+            titre_mission: input.title,
+            state: "urgent",
+            adresse:input.address ,
+            etat_mission: 0,
+            images: "null",
+            ville:input.ville ,
+            interval_temp: 15,
+            mission_description: input.description ,
+            date:null ,
+            zip_code: 151515 } 
+          
+            console.log(" table "+input.toString())
+   /*  Axios.post("http://localhost:8080/missions/"+this.props.user.id,{
+         
+              categorie:[input.category],
+                titre_mission: input.title,
+                state: "urgent",
+                adresse:input.address ,
+                etat_mission: 0,
+                images: "null",
+                ville:input.ville ,
+                interval_temp: 15,
+                mission_description: input.description ,
+                date:input.ville ,
+                zip_code: input.zipcode 
+
+           })
+              .then(res=>{
+                
+             
+              })
+              .catch(err =>{
+               alert(err)
+              })*/
+        this.props.nextStep(input);
+    };
+
+    back = e => {
+        this.props.prevStep();
+    };
+
+    onChange = ee => {
+        this.setState({ value: ee.target });
+    }
+
+
+    render() {
+        const { values, inputChange } = this.props;
+
+
+
+        return (
+            <div className="form-container">
+             
+                <br />
+
+
+                <div className="birthDate mb-4">
+                    <label className="form-label" htmlFor="form5Example1">Une estimation de votre mission: <span style={{ color: 'red' }}>*</span></label>
+                    <input type="date" className="form-control" id="birthDate" name="birthDate1" onChange={inputChange('date')} value={values.date} required />
+                </div>
+
+<br/>
+                <div className="row">
+                    <div className="col-6">
+                        <div className="text-center">
+                            <button className="btn btn-secondary" onClick={this.back}>Page précédente</button>
+                        </div>
+                    </div>
+                    <div className="col-6">
+                        <div className="text-center">
+                            <button className="btn btn-primary" onClick={() => this.continue(values)}>Page Suivante</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        )
+    }
+}
+
+export default FormPay

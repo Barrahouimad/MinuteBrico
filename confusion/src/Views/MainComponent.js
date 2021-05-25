@@ -12,10 +12,12 @@ import { Redirect, Switch,Route}  from 'react-router-dom';
 import PostuleMission from '../Components/mission/postuleMissions';
 import ClientMissions from '../Components/mission/ClientMissions/ClientMisions';
 import DetailsMissions from '../Components/mission/ClientMissions/Detailsmission'
+import Container from '../Components/mission/formmission/container'
 import Cookies from 'js-cookie';
 import Axios from "axios"
 import Context from '../Shared/context';
 import { StoreTwoTone } from '@material-ui/icons';
+import ProfileBricoleurDetails from '../Components/profileBricoleur/detailsProfile/ProfileBricoleurDetails'
 const Main = ()=>{
    const stoor=useContext(ThemeContext);
 //the data 
@@ -53,7 +55,8 @@ useEffect(()=>{
              <Route exact path='/' component={()=><Home1 data={data}  />}/>
              <Route path='/home' component={()=><Home1  data={data}  />}/>
              <Route path='/missions' component={()=><Mission  data={data} />}/>
-             <Route path='/CreateMission' />
+             <Route path='/CreateMission'component={()=><Container  user={data} />}  />
+             <Route path='/profile/:id' component={()=><ProfileBricoleurDetails  data={data} />} />
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />

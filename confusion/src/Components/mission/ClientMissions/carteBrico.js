@@ -42,7 +42,6 @@ const carte=brico.map((brico)=>{
              </div>
              <div className="col-md-3 p-3">
                  <h3>Disponibilité </h3>
-                
              </div>
          </div>
          <div className="d-flex flex-column align-items-around p-3">

@@ -21,7 +21,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
           <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
             <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="assets/career.png"/>
           </div>
-          <p className="p-2">{props.data.firstName+" "+props.data.lastName}</p>
+        <Link to={"/profile/"+props.data.id}> <p className="p-2">{props.data.firstName+" "+props.data.lastName}</p></Link>
           <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
         </div>
       </div>
