@@ -29,7 +29,7 @@ const Carte =(props)=>{
                     <div style={{height:"200px", boxShadow:"2px 3px 20px 12px",marginLeft:"10px",paddingTop:"70px",background:"#ffff",borderRadius:"5px"}}  className="pl-3 col-md-2 col-xs-10 ">
                       {(item.etat_mission==0)?<h1 style={{color:"green"}} >Postée</h1>:
                           (item.etat_mission==1)?<h1 style={{color:"gray"}} >En cours</h1>:
-                        <h1 style={{color:"#D1653E"}} >Terminé</h1>
+                        <h1 id="h1" style={{color:"#D1653E"}} >Terminé</h1>
                       }
                       
                     </div>
@@ -38,8 +38,8 @@ const Carte =(props)=>{
   return(
     
         <div>
-        {format}      
-       </div>
+          {format}      
+        </div>
  
   );
 }

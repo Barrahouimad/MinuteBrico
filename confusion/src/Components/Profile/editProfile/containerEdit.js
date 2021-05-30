@@ -2,9 +2,9 @@ import React from 'react'
 import './forms.css';
 import FormEdit from './formEdit';
 
-import './Sidebar.css';
+//mport './Sidebar.css';
 import Nav from "../../home/nav";
-import "../../home/style.css"
+//import "../../home/style.css"
 //import Footer from "../home/Footer"
 
 
@@ -29,13 +29,13 @@ function ContainerEdit(props) {
                 bottom:"0",
                 zIndex:"20"
             }}> 
-                <a style={{color: "#D1653E"}} >
+                <a id="a" style={{color: "#D1653E"}} >
 
-profil 
+                   profil 
                 </a>
 
-                <a href="/mdp" style={{color: "black"}} >
-mot de passe 
+                <a id="a" href="/mdp" style={{color: "black"}} >
+                   mot de passe 
                 </a>
             
             </div>

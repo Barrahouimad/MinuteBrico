@@ -1,6 +1,6 @@
 import React , {useState} from 'react'
 import Multiselect from 'multiselect-react-dropdown'
-import './formedit.css'
+//import './formedit.css'
 
 function DropDownListCheckBox(props) {
     const data=[

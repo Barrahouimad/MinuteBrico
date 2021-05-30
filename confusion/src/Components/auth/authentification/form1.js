@@ -102,8 +102,7 @@ class Form1 extends Component {
                                     <option value="Marrakech">Marrakech </option>
                                 </select>        
                             </div>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <div className="form-outline mb-4 md-5" style={{justifyContent:"space-between",display:"inline-block"}} >
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            <div className="form-outline mb-4 md-5" style={{justifyContent:"space-between",display:"inline-block"}} >
                                 <label className="form-label" htmlFor="form5Example1">Adresse<span style={{color:'red'}}>*</span> </label>
                                 <input type="text"  className="form-control" id="adresse" name="adresse1" onChange={inputChange('adresse')} value={values.adresse}  required />
                             </div>

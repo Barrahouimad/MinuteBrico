@@ -5,7 +5,7 @@
 }
 
 #FormEdit{
-    position:relative;
+    /*position:relative;*/
     display: flex;
     justify-content: flex-end;
     align-items: left;
@@ -19,7 +19,7 @@
   }
 
 
-  .form-container {
+  #FormEdit>.form-container {
     background: #fff;
     border-radius: 0px;
     max-width: 2000px;
@@ -30,24 +30,15 @@
 
  
 
-  .form-container>.title{
-    padding-top: 5%;
-    font-size: large;
-    margin-top: auto;
-    font-size: 30px;
-    margin-top: -5px;
-    text-align: left;
-    font-weight: bold;
-    
-  }
 
-  .form-container>.Certificat{
+
+  #FormEdit>.form-container>.Certificat{
     color: #D1653E;
     text-align: left;
   }
 
 
-  h2 {
+  #h2 {
     width: 100%; 
     text-align: left; 
     border-bottom: 1px solid rgb(163, 163, 163); 

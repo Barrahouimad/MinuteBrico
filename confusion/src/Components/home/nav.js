@@ -45,7 +45,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
     <Link to="/home"><img alt="..." src="/assets/logo.png" className="logo" /></Link>
     <ul className="center">
       <Link to="/missions" ><li>Missions</li></Link>
-      <Link id="mespostules" className="p-2" to="/createMission" >Créer Mission</Link>
+      <Link  to="/createMission" ><li>Créer Mission</li></Link>
       <Link to="/Mesmissions" ><li>Mes Créations</li></Link>
       
     </ul>

@@ -60,10 +60,10 @@ class Form4 extends Component {
             />
 
 
-                <p className="title">Mot de passe</p>
+                <p id="p" className="title">Mot de passe</p>
                 <div style={{marginLeft:"50px", marginRight:"50px"}}>
                     <form>
-                        <h2></h2>
+                        <h2 id="#h2"></h2>
                         <div className="form-outline mb-4 md-5" style={{justifyContent:"space-between",display:"block"}} >
                             <label className="form-label" htmlFor="form5Example1">Mot de passe actuel </label>
                             <input type="text"  className="form-control" id="adresse" name="adresse1" onChange={inputChange('adresse')} value={values.adresse}  required />
@@ -81,7 +81,7 @@ class Form4 extends Component {
                             <input type="text"  className="form-control" id="adresse" name="adresse1" onChange={inputChange('adresse')} value={values.adresse}  required />
                         </div>
 
-                        <button onClick={this.continue} style={{float:'left'}} type="submit" className="btn btn-primary btn-block mb-4">Enregister</button>
+                        <button id="button" onClick={this.continue} style={{float:'left'}} type="submit" className="btn btn-primary btn-block mb-4">Enregister</button>
                     </form>             
                 </div>
             </div>

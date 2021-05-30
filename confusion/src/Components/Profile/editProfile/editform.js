@@ -126,40 +126,40 @@ class Editform extends Component {
 
             <div className="form-container mt-5 mb-5" style={{width:"50%"}}>
 
-            <SweetAlert
-              show={this.state.showErr}
-              title="Error"
-              text="Merci de vérifier tous les champs nécessairs"
-              onConfirm={() => this.setState({ showErr: false })}
-            />
+                <SweetAlert
+                show={this.state.showErr}
+                title="Error"
+                text="Merci de vérifier tous les champs nécessairs"
+                onConfirm={() => this.setState({ showErr: false })}
+                />
 
 
-                <p className="title">Details du Profil</p>
+                <p id="p" className="title" style={{marginTop:"40px"}}>Details du Profil</p>
                 <div style={{marginLeft:"50px", marginRight:"50px"}}>
                     <form>
-                        <h2></h2>
-                        <div className="form-outline mb-4 md-5" style={{justifyContent:"space-between",display:"inline-block"}} >
-                            <label className="form-label" htmlFor="form5Example1">Nom </label>
+                        <h2 id="#h2" ></h2>
+                        <div className="form-outline mb-4 md-5"  >
+                            <label style={{float:"left"}} className="form-label" htmlFor="form5Example1">Nom </label>
                             <input type="text"  className="form-control" id="last_name" name="last_name1" onChange={this.inputChangee('last_name')} value={this.state.last_name}  required />
                         </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="form-outline mb-4 md-5" style={{justifyContent:"space-between",display:"inline-block"}} >
-                            <label className="form-label" htmlFor="form5Example1">Prénom</label>
+                       
+                        <div className="form-outline mb-4 md-5"  >
+                            <label style={{float:"left"}} className="form-label" htmlFor="form5Example1">Prénom</label>
                             <input type="text"  className="form-control" id="first_name" name="first_name1" onChange={this.inputChangee('first_name')} value={this.state.first_name}  required />
                         </div>
 
 
-                        <div className="form-outline mb-4 md-5" style={{justifyContent:"space-between",display:"inline-block"}} >
-                            <label className="form-label" htmlFor="form5Example1">Télephone </label>
+                        <div className="form-outline mb-4 md-5"  >
+                            <label style={{float:"left"}} className="form-label" htmlFor="form5Example1">Télephone </label>
                             <input type="text"  className="form-control" id="phone" name="phone1" onChange={this.inputChangee('phone')} value={this.state.phone}  required />
                         </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="birthDate mb-4" style={{justifyContent:"space-between",display:"inline-block"}}>
-                            <label className="form-label" htmlFor="form5Example1">Date de Naissance</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div className="birthDate mb-4" >
+                            <label style={{float:"left"}} className="form-label" htmlFor="form5Example1">Date de Naissance</label>
                             <input type="date" className="form-control" id="birth_date" name="birth_date1"onChange={this.inputChangee('birth_date')} value={(this.state.birth_date)} required  />
                         </div>
 
-                        <h2></h2>
+                        <h2 id="#h2"></h2>
                         {/*
                         <div className=" mb-4" style={{justifyContent:"space-between",display:"inline-block"}} >
                             <label className="form-label" htmlFor="form5Example2">Ville</label> 
@@ -180,17 +180,17 @@ class Editform extends Component {
                         </div>*/}
 
                         <div className="form-outline mb-4 md-5">
-                            <label className="form-label" htmlFor="form5Example1">Adresse </label>
+                            <label style={{float:"left"}} className="form-label" htmlFor="form5Example1">Adresse </label>
                             <input type="text"  className="form-control" id="adresse" name="adresse1" onChange={this.inputChangee('adresse')} value={this.state.adresse}  required />
                         </div>
-                        <h2></h2>
+                        <h2 id="#h2"></h2>
                        {/* <div className="form-outline mb-4 mt-5">
                             <label class="form-label" for="customFile">Photo de profil</label>
                             <input type="file" class="form-control" id="customFile"  onChange={this.inputChangee('photo')} value={this.state.photo} />
                         </div>*/}
 
 
-                        <button onClick={this.continue} style={{float:'left'}} type="submit" className="btn btn-primary btn-block mb-4">Enregister</button>
+                        <button onClick={this.continue} style={{float:'center'}} type="submit" className="btn btn-primary ">Enregister</button>
                     </form>             
                 </div>
             </div>

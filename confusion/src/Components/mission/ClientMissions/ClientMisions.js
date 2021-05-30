@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../../home/nav';
-import './ClientMissionCss.css'
+//import './ClientMissionCss.css'
 import Carte from './carte';
 const ClientMissions =(props)=>{
     /** */
@@ -11,10 +11,10 @@ const ClientMissions =(props)=>{
             <div id="container" className="Container">
                 <div className="row justify-content-center">
                     <div style={{background:"#D1653E",textColor:"white",padding:"5px"}} className="col-md-6 col-xs-10">
-                            <h1>Récapitulatif de vos missions</h1>
+                            <h1 id="h1">Récapitulatif de vos missions</h1>
                     </div>
                     <div style={{background:"#D1653E",marginLeft:"10px",padding:"5px"}} className="ml-3 col-md-2 col-xs-10">
-                            <h1>Status de mission</h1>
+                            <h1 id="h1">Status de mission</h1>
 
                     </div>
                </div>
