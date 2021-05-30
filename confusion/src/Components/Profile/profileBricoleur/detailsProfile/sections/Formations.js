@@ -9,7 +9,7 @@ function Formation({datas}) {
   const profileData = async () => {
     try {
       
-      const res = await axios.get("http://localhost:8080/bricoleurs/150");
+      const res = await axios.get("http://localhost:8080/bricoleurs/30");
       setDiplome(res.data.diplomes);
       
     } catch (error) {
@@ -32,7 +32,7 @@ function Formation({datas}) {
           </div>
           <div className="grid__item">
               <h4 className="grid__title">{diplomes[i].school}</h4>
-              <p id="p" className="grid__location">{diplomes[i].diplome}</p>
+              <p className="grid__location">{diplomes[i].diplome}</p>
           </div>
         </div>
       )
@@ -45,7 +45,8 @@ function Formation({datas}) {
   
     return (
         <div className="cursus mb3">
-          <h3 id="h3">Formations</h3>
+          <h3> <i class="fa fa-university" aria-hidden="true"></i>
+  Formations</h3>
           {lesDiplomes(diplome)}
         </div>
     )

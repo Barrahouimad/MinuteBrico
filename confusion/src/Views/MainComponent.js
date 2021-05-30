@@ -15,9 +15,10 @@ import DetailsMissions from '../Components/mission/ClientMissions/Detailsmission
 import Container from '../Components/mission/formmission/container'
 import Cookies from 'js-cookie';
 import Axios from "axios"
+import ContainerEdit from '../Components/Profile/editProfile/containerEdit';
 import Context from '../Shared/context';
 import { StoreTwoTone } from '@material-ui/icons';
-import ProfileBricoleurDetails from '../Components/profileBricoleur/detailsProfile/ProfileBricoleurDetails'
+import ProfileBricoleurDetails from '../Components/Profile/profileBricoleur/detailsProfile/ProfileBricoleurDetails'
 const Main = ()=>{
    const stoor=useContext(ThemeContext);
 //the data 
@@ -44,10 +45,9 @@ useEffect(()=>{
     })
 },[])
 
+//stoor.setAuth(true);
 
-
-  //stoor.setAuth(true);
- console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id+" data "+data);  
+console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id+" data "+data);  
  
    return(
       <div>
@@ -56,7 +56,10 @@ useEffect(()=>{
              <Route path='/home' component={()=><Home1  data={data}  />}/>
              <Route path='/missions' component={()=><Mission  data={data} />}/>
              <Route path='/CreateMission'component={()=><Container  user={data} />}  />
-             <Route path='/profile/:id' component={()=><ProfileBricoleurDetails  data={data} />} />
+             <Route path='/profile' component={()=><ProfileBricoleurDetails  user={data} />} />
+             <Protectedroute  auth={Cookies.get('Token')!=null} exact path="/editprofile" >
+                     <ContainerEdit user={data} />
+            </Protectedroute>
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />

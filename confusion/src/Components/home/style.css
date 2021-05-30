@@ -10,7 +10,7 @@ a{
     align-items: center;
     position: fixed;
     width: 100%;
- z-index:3;
+    z-index: 3;
     top: 0;
 }
 .navbar>a>.logo{
@@ -23,12 +23,6 @@ a{
     align-items: center;
     
 }
-#mespostules{
-    font-family: Arial;
-    font-size:20px;
-    color:#8C8C8C;
-    margin-right: 40px;
-}
 .navbar>.center>a>li{
     font-family: Arial;
     font-size:20px;
@@ -37,6 +31,12 @@ a{
 }
 .navbar>.center>a>li:hover{
     color: black;
+}
+.navbar>.center{
+    font-family: Arial;
+    font-size:20px;
+    color:#8C8C8C;
+    margin-right: 40px;
 }
 
 .navbar>.auth{
@@ -69,11 +69,9 @@ a{
     background: white;
     color: black;
     border: 1px solid transparent;
+    font-size:20px;
 }
 
-.InputComp{
-    
-}
 
 .InputComp>.title{
     font-family:Arial;
@@ -85,4 +83,38 @@ a{
     width:100%;
     margin-top: -10px;
     border-radius: 10px;
+}
+
+.devenirBtn{
+    margin-right: 10px;
+    background: #D1653E;
+    border: 1px solid #D1653E;
+    color: white;
+}
+.creer_mission{
+    margin-right: 10px;
+    background: white;
+    color: black;
+    border: 1px solid #D1653E;
+}
+.email{
+    text-decoration: none;
+    font-size:13px;
+
+}
+.menu-overr {
+    position: absolute;
+    top: 70%;
+    left: 90%;
+    background-color: rgb(209, 205, 205);
+    
+}
+.item-over{
+    color:black;
+    text-decoration: none;
+}
+ul{
+    text-decoration: none;
+    list-style-type: none;
+    text-align: left;
 }

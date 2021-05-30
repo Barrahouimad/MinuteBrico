@@ -4,11 +4,15 @@ import axios from "axios";
 
 function Profil() {
     const [ProfilDescreption, setProfilDescreption] = useState("");
+    const [profileName, setProfileName] = useState("");
     const profileData = async () => {
         try {
          
-          const res = await axios.get("http://localhost:8080/bricoleurs/150");
+          const res = await axios.get("http://localhost:8080/bricoleurs/30");
           setProfilDescreption(res.data.descriptionProfil);
+          setProfileName(
+            `${res.data.firstName} ${res.data.lastName}`
+          );
           
         } catch (error) {
           console.log(error);
@@ -20,8 +24,8 @@ function Profil() {
       }, []);
     return (
         <div className = "profil mb5">
-            <h3 id="h3">à propos de moi</h3>
-            <p id="p">
+            <h3>à propos de {profileName}</h3>
+            <p>
               {ProfilDescreption}
             </p>
         </div>

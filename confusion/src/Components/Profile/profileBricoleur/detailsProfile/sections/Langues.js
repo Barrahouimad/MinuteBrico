@@ -8,7 +8,7 @@ function Langues() {
   const profileData = async () => {
     try {
       
-      const res = await axios.get("http://localhost:8080/bricoleurs/150");
+      const res = await axios.get("http://localhost:8080/bricoleurs/30");
       setLangue(res.data.langues);
       
     } catch (error) {
@@ -24,9 +24,9 @@ function Langues() {
       let array = []
       for(var i=0;i<langues.length;i++){
         array.push(
-          <p id="p">
+          <p>
             {langues[i].name_language}
-          </p>
+        </p>
         )
       }
       return(
@@ -35,7 +35,7 @@ function Langues() {
     }
   return (
       <div className = "user">
-        <h3 id="h3">Langues: </h3>  
+        <h2>Langues: </h2>  
         {
            <div>
              {leslangues(langue)}

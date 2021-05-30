@@ -6,9 +6,7 @@ import Select from 'react-select'
 export class FormPay extends Component {
 
     continue = (input) => {
-        const data={ 
-            interval_temps: 480000,
-            categorie:[input.category],
+        const data={ categorie:[input.category],
             titre_mission: input.title,
             state: "urgent",
             adresse:input.address ,
@@ -17,10 +15,9 @@ export class FormPay extends Component {
             ville:input.ville ,
             interval_temp: 15,
             mission_description: input.description ,
-            date:null ,
-            zip_code: 151515 } 
-          
-            console.log(" table "+input.toString())
+            date:input.date ,
+            zip_code: input.zipcode } 
+            alert(" table "+input)
    /*  Axios.post("http://localhost:8080/missions/"+this.props.user.id,{
          
               categorie:[input.category],
@@ -34,7 +31,6 @@ export class FormPay extends Component {
                 mission_description: input.description ,
                 date:input.ville ,
                 zip_code: input.zipcode 
-
            })
               .then(res=>{
                 

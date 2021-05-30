@@ -8,24 +8,52 @@ import axios from 'axios'
 const url ="http://localhost:3000/profile"  // on preciser une autre url apres (this is just)
 const Review = () => {
 
-    const [rating , setRating]=useState(null);
-    const [hover , setHover]=useState(null);
-    const [review, setReview]=useState('');   
-    
+    const [rating , setRating]=useState(null);  
+    const [hover , setHover]=useState(null);   
+    const [review, setReview]=useState('');    
+    const [data , setData] = useState({});
 
-   function SendReview(){
+   const SendReview = async () => {
 
        //console.log(rating +" "+review)
        //alert(`${rating} ${review}`)
-       const comment = document.getElementById("textReview").value.length;
-      
-
+       const comment = document.getElementById("textReview").value.length;     
+       
+       
        if( comment!==0 ){
-            axios.post("http://localhost:8080/Review_on_Brico",{
-                
+         axios.get("http://localhost:8080/bricoleurs/30")
+        
+        .then(res=>{
+            
+            const revwtab =[];
+            const revw={
                 userName_Client : "iliass Alilou",
                 star : rating,
                 comment : review
+              }
+              const array3 = revwtab.concat(res.data.reviewsOnBrico);
+              revwtab.push(res.data.reviewsOnBrico)
+              //alert(revwtab)
+              array3.push(revw)
+              //console.log(array3)
+              //alert(revwtab)
+            axios.put("http://localhost:8080/bricoleurs/30" , {
+               
+                photo: res.data.photo,
+                firstName: res.data.firstName,
+                lastName: res.data.lastName,
+                email: res.data.email,
+                password: res.data.password,
+                phone: res.data.phone,
+                birthDate: res.data.birthDate,
+                adresse: res.data.adresse,
+                descriptionProfil: res.data.descriptionProfil,
+                token: res.data.token,
+                category: res.data.category,
+                certifications: res.data.certifications,
+                diplomes: res.data.diplomes,
+                langues: res.data.langues,
+                reviewsOnBrico: array3
 
             })  .then(Swal.fire({
                 title: 'Merci',                
@@ -38,6 +66,14 @@ const Review = () => {
                     document.location.href=url
                   }
               }))
+              .catch(err =>{
+                alert(" error ",err);
+                  })
+
+              })
+         .catch(err =>{
+         console.log("still have error ",err);
+         })
        }
        else{
           Swal.fire({
@@ -48,8 +84,8 @@ const Review = () => {
             button: 'Ok'          
           })
        }
-   }   
 
+    }
     return (
         <div className="review">
             {[...Array(5)].map((star , i)=>{
@@ -99,17 +135,17 @@ const Review = () => {
                                                                                               - la qualite de son sevice?
                                                                                               - le respect du delai? etc.." 
                             
-                            />
-                                
-                   
+                            />                  
                    
                     <br/>
                     <br/>
                     <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </form>
-                <button  style={{width:"36%",backgroundColor:"#D4643C"}} onClick={SendReview}  type="submit" className="btn  mr-4 mb-4">Enregistrer</button>
+                <button  style={{width:"36%",backgroundColor:"#D4643C",color:'white'}} onClick={SendReview}  type="submit" className="btn  mr-4 mb-4">Enregistrer</button>
             </div>  
         </div>
     )
 }
 export default Review;
+
+

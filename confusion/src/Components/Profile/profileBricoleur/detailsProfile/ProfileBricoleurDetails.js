@@ -7,6 +7,7 @@ import Profil from './sections/Profil'
 import Langues from './sections/Langues';
 import FormationDomaines from './sections/FormationDomaines';
 import Avis from './sections/Avis';
+import Nav from '../../../home/nav';
 
  {/* TO DO  */}
         {/* Variables CSS */}
@@ -20,20 +21,24 @@ import Avis from './sections/Avis';
                 {/* Export PDF (react-html2pdf)  If u can */}
 
 
- function ProfileBricoleurDetails() {
+ function ProfileBricoleurDetails(props) {
     return (
       <div className="App">
+        <Nav data={props.user} />
         <div className="grid__container">
           <div className="sidebar">
-            <User />
-            <Localisation/>
-            <Langues/>
+            <User user={props.user}  />
+            <Localisation user={props.user}/>
+            <Langues user={props.user}/>
           </div>
           <div className="main">
-            <Profil />
-            <FormationDomaines/>
-            <Avis/>
+            <Profil user={props.user}/>
+            <FormationDomaines user={props.user}/>
+            <Avis user={props.user}/>
           </div>
+        </div>
+        <div className="inter">
+
         </div>
       </div>
     )

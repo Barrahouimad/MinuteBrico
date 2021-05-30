@@ -6,7 +6,7 @@ import Axios from "axios"
 import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@material-ui/icons';
 
  const Nav=(props)=>   {
-
+ const [pop,setPop]=useState(false);
   if(props.data.length!=0 && props.data.role=="Bricoleur"){
 
 
@@ -17,13 +17,23 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
           <Link to="/missions" ><li>Missions</li></Link>
           <Link id="mespostules" className="p-2" to="/postulemissions" >Mes postules</Link>
         </ul>
-  <div className="d-flex content-justify-between">
+      <div className="d-flex content-justify-between">
           <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
             <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="assets/career.png"/>
           </div>
-        <Link to={"/profile/"+props.data.id}> <p className="p-2">{props.data.firstName+" "+props.data.lastName}</p></Link>
-          <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
-        </div>
+  
+         <button onClick={()=>setPop(!pop)} ><i class="fa fa-user-circle"></i>  {props.data.firstName+" "+props.data.lastName}</button>
+   
+  
+        {pop &&  <ul class=" menu-overr main-menu menu">
+           <Link to="/profile" ><li class=" item-over menu-item menu-item-has-children dropdown">Profile</li></Link>
+           <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown">Parametres</li></Link>
+           <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
+            
+        </ul>
+        }
+       
+           </div>
       </div>
     );
 
