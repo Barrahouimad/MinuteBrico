@@ -4,9 +4,9 @@ import './forms.css';
 
 function DropDownListCheckBoxLanguages(props) {
     const data=[
-        {langues:"Anglais" , id:1},
-        {langues:"Arabe" , id:2},
-        {langues:"Francais" , id:3},     
+        {langue:"Anglais" , id:1},
+        {langue:"Arabe" , id:2},
+        {langue:"Francais" , id:3},     
     ]
 
     const onSelect= (selectedList, selectedItem) => {

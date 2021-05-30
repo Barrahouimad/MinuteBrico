@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 
-function Formation({datas}) {
+function Formation(props) {
   const [diplome, setDiplome] = useState("");
   
-
+ 
   const profileData = async () => {
     try {
       
-      const res = await axios.get("http://localhost:8080/bricoleurs/30");
+      const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
       setDiplome(res.data.diplomes);
-      
+    //  alert("school  "+diplome[0].school)
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +46,7 @@ function Formation({datas}) {
     return (
         <div className="cursus mb3">
           <h3> <i class="fa fa-university" aria-hidden="true"></i>
-  Formations</h3>
+             Formations</h3>
           {lesDiplomes(diplome)}
         </div>
     )
