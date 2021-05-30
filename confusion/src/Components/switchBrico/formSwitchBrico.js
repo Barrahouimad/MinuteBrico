@@ -114,6 +114,7 @@ class FormSwitchBrico extends Component {
                     nextStep={this.nextStep}
                     inputChange = {this.inputChange}
                     values= {values}
+                    user={this.props.user}
                         />
                 );
                 

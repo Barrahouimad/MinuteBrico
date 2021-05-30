@@ -19,6 +19,7 @@ import ContainerEdit from '../Components/Profile/editProfile/containerEdit';
 import Context from '../Shared/context';
 import { StoreTwoTone } from '@material-ui/icons';
 import ProfileBricoleurDetails from '../Components/Profile/profileBricoleur/detailsProfile/ProfileBricoleurDetails'
+import ContainerBrico from '../Components/switchBrico/containerBrico';
 const Main = ()=>{
    const stoor=useContext(ThemeContext);
 //the data 
@@ -63,6 +64,7 @@ console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />
+             <Route exact path="/switch" component={()=><ContainerBrico user={data}/>} />
              <Route path='/postulemissions' component={()=> <PostuleMission  user={data} /> }/>
              <Route path='/Mesmissions' component={()=><ClientMissions data={data}/> }/>
              <Route path='/carddetails/' component={()=><DetailsMissions data={data}/> }/>

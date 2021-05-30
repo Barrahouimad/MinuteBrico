@@ -2,10 +2,10 @@ import React from 'react'
 import './forms.css';
 import FormSwitchBrico from './formSwitchBrico'
 
-function ContainerBrico() {
+function ContainerBrico(props) {
     return (
         <div id="FormSwitchBrico">
-            <FormSwitchBrico />
+            <FormSwitchBrico user={props.user}/>
         </div>
     )
 }

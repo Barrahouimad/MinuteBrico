@@ -2,7 +2,7 @@ import React from 'react';
 import '../../App.css';
 import { Button } from './Button';
 import './HeroSection.css';
-
+import {Link} from 'react-router-dom';
 function HeroSection(props) {
 
   if(props.data.length!=0 && props.data.role=="Bricoleur"){
@@ -22,21 +22,7 @@ function HeroSection(props) {
     <h1>Bonjour chers Client</h1>
     <p>Trouver le Meilleur Bricoleur pour résoudre tous vos problèmes</p>
     <div className='hero-btns'>
-      <Button
-        className='btns'
-        buttonStyle='btn--outline'
-        buttonSize='btn--large'
-      >
-        Trouver un MinuteBricoleur
-      </Button>
-      <Button
-        className='btns'
-        buttonStyle='btn--primary'
-        buttonSize='btn--large'
-        onClick={console.log('hey')}
-      >
-        Devenir un MinuteBricoleur 
-      </Button>
+     <Link  to="/switch"><button style={{height:"100px",width:"320px",borderRadius:"22px",fontSize:"22px"}} className="btn btn-outline-success" >Devenir bricoleur</button></Link> 
     </div>
   </div>
   

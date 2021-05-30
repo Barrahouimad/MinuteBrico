@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SweetAlert from 'sweetalert2-react';
 import Swal from 'sweetalert2'
 
-const url = "http://localhost:3000/profile_brico_kaoutarDetails";
+const url = "http://localhost:3000/profile";
 //const url = "/";
 
 class Form3 extends Component {
@@ -11,7 +11,20 @@ class Form3 extends Component {
     state = {
         showErr : false,
     }
-
+    generateString(length) {
+        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+         let result = ' ';
+         const charactersLength = characters.length;
+         for ( let i = 0; i < length; i++ ) {
+             result += characters.charAt(Math.floor(Math.random() * charactersLength));
+         }
+     
+         return result;
+         /*const token=this.generateString(10);
+         const href="http://localhost:3000/bricosignup/"+token;
+           token:token,
+                 role:"Bricoleur"*/
+     }
     back = e => {
         e.preventDefault();
         this.props.prevStep();
@@ -23,42 +36,47 @@ class Form3 extends Component {
         } = this.props;
 
         e.preventDefault();
-        const description = document.getElementById("descriptionProfil").value.length;
+        const description = document.getElementById("descriptionProfil").value;
 
-        const diplome = document.getElementById("diplome").value.length;
-        const school =document.getElementById("school").value.length;
-        const annee_entre = document.getElementById("annee_entre").value.length;
-        const annee_sortie = document.getElementById("annee_sortie").value.length;
-        const diplome_serie = document.getElementById("diplome_serie").value.length;
-        const customFile = document.getElementById("customFile").value.length;
+        const diplome = document.getElementById("diplome").value;
+        const school =document.getElementById("school").value;
+        const annee_entre = document.getElementById("annee_entre").value;
+        const annee_sortie = document.getElementById("annee_sortie").value;
+        const diplome_serie = document.getElementById("diplome_serie").value;
+        const customFile = document.getElementById("customFile").value;
         const diplomes=[{
             diplome:diplome,
             school:school,
             annee_entre:annee_entre,
             annee_sortie:annee_sortie,
             diplome_serie:diplome_serie,
-            customFile:customFile
+            customFile:customFile   
         }]
     const descriptionProfil = document.getElementById("descriptionProfil") ;
-    alert(descriptionProfil)
+   // alert(descriptionProfil)
 
-    if( description !==0 && diplome!== 0 && school!==0  && annee_entre!==0  && annee_sortie!==0  && diplome_serie!==0 && customFile!==0   ){
+    if( description.length !==0 && diplome.Length!== 0 && school.Length!==0  && annee_entre.Length!==0  && annee_sortie.Length!==0  && diplome_serie.Length!==0 && customFile.Length!==0   ){
            //alert(certifications[0].name_certification);
-           axios.post("http://localhost:8080/bricoleur",
+           axios.post("http://localhost:8080/bricoleurscertif",
             {
-                firstName:firstName,
-                lastName:lastName,
-                displayName : '',
-                city : '' ,
-                photo : '',
-                birthDate:birthDate,
-                adresse:adresse,
-                phone : '',
-                category:category,
-                langues:langues,
-                certifications:certifications,
-                diplomes:diplomes,
-                descriptionProfil : descriptionProfil
+                    email:this.props.user.email,
+                    password:this.props.user.password,
+                    firstName:firstName,
+                    lastName:lastName,
+                    ville : city ,
+                    birthday:birthDate,
+                    adresse:adresse,
+                  //  phone : phone,
+                    role:"Bricoleur",
+                    token:this.generateString(10),
+                    descriptionProfil : descriptionProfil.value,
+                    Certification:certifications,
+                    Categorie:category,
+                    Langues:langues,
+                    Diplomes:diplomes
+                
+                
+
             }).then(Swal.fire({
                 title: 'Merci',                
                 text: 'Votre Profile Bricoleur a été bien Créé',
@@ -69,7 +87,10 @@ class Form3 extends Component {
                 if (okay){
                   document.location.href=url
                 }
-            }))
+            }))       .catch(err =>{
+              
+                  alert(err+"  " +descriptionProfil.value+ "  token"+this.generateString(10)+"  " +adresse+"  " +city+"  " +birthDate+"  " +lastName+"  " +certifications[0].name_certification+"  " +diplomes[0].school+"  " +langues[0].langues);
+                })
 
         }
         else{

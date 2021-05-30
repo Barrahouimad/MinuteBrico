@@ -55,7 +55,7 @@ class Form2 extends Component {
         }
         else{
             this.setState({ showErr: true })
-         alert(this.state.category[0].name);
+         alert(this.state.categorie[0].name);
           }
     };
     back = e => {
