@@ -4,14 +4,14 @@ import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import {FaStar} from 'react-icons/fa'
 
-function Avis() {
+function Avis(props) {
 
   const [reviewsbrico , setReviewsbrico] = useState("");
   //const [nmbrstar , setNmbrstar] = useState(0);
   const profileData = async () => {
     try {
       
-      const res = await axios.get("http://localhost:8080/bricoleurs/30");
+      const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
       setReviewsbrico(res.data.reviewsOnBrico);
       //alert(res.data.reviewsOnBrico[0].star);
       //setNmbrstar(4);  

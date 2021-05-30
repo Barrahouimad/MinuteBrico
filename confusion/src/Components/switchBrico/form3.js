@@ -70,10 +70,10 @@ class Form3 extends Component {
                     role:"Bricoleur",
                     token:this.generateString(10),
                     descriptionProfil : descriptionProfil.value,
-                    Certification:certifications,
-                    Categorie:category,
-                    Langues:langues,
-                    Diplomes:diplomes
+                    certifications:certifications,
+                    categorie:category,
+                    langues:langues,
+                    diplomes:diplomes
                 
                 
 

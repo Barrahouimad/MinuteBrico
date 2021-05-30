@@ -5,11 +5,11 @@ import dataDomaines from '../datas/Domaines'
 import Formations from './Formations'
 import Domaines from './Domaines'
 
-function FormationDomaines() {
+function FormationDomaines(props) {
     return (
         <>
-          <Formations datas = {dataFormations}/> 
-          <Domaines datas = {dataDomaines}/> 
+          <Formations user={props.user}/> 
+          <Domaines user={props.user}/> 
         </>
     )
 }

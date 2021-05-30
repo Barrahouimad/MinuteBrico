@@ -3,14 +3,14 @@ import {Link } from "react-router-dom"
 import axios from 'axios'
 
 
-function Langues() {
+function Langues(props) {
   const [langue , setLangue] = useState("");
   const profileData = async () => {
     try {
       
-      const res = await axios.get("http://localhost:8080/bricoleurs/30");
+      const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
       setLangue(res.data.langues);
-      
+     
     } catch (error) {
       console.log(error);
     }
@@ -25,7 +25,7 @@ function Langues() {
       for(var i=0;i<langues.length;i++){
         array.push(
           <p>
-            {langues[i].name_language}
+            {langues[i].langue}
         </p>
         )
       }

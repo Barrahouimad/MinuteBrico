@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Domaines({datas}) {  
+function Domaines(props) {  
 
   const [certification, setCertification] = useState("");
 
   const profileData = async () => {
     try {
       
-      const res = await axios.get("http://localhost:8080/bricoleurs/30");
+      const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
       setCertification(res.data.certifications);
       
     } catch (error) {

@@ -6,7 +6,7 @@ import './style.css'
 import axios from 'axios'
 
 const url ="http://localhost:3000/profile"  // on preciser une autre url apres (this is just)
-const Review = () => {
+const Review = (props) => {
 
     const [rating , setRating]=useState(null);  
     const [hover , setHover]=useState(null);   
@@ -21,13 +21,13 @@ const Review = () => {
        
        
        if( comment!==0 ){
-         axios.get("http://localhost:8080/bricoleurs/30")
+         axios.get("http://localhost:8080/bricoleurs/"+props.user.id)
         
         .then(res=>{
             
             const revwtab =[];
             const revw={
-                userName_Client : "iliass Alilou",
+               
                 star : rating,
                 comment : review
               }
@@ -37,22 +37,22 @@ const Review = () => {
               array3.push(revw)
               //console.log(array3)
               //alert(revwtab)
-            axios.put("http://localhost:8080/bricoleurs/30" , {
+            axios.put("http://localhost:8080/bricoleurs/"+props.user.id , {
                
-                photo: res.data.photo,
+               /* photo: res.data.photo,
                 firstName: res.data.firstName,
                 lastName: res.data.lastName,
                 email: res.data.email,
                 password: res.data.password,
                 phone: res.data.phone,
-                birthDate: res.data.birthDate,
+                birthday: res.data.birthDate,
                 adresse: res.data.adresse,
                 descriptionProfil: res.data.descriptionProfil,
                 token: res.data.token,
-                category: res.data.category,
-                certifications: res.data.certifications,
-                diplomes: res.data.diplomes,
-                langues: res.data.langues,
+                Categorie: res.data.category,
+                Certifications: res.data.certifications,
+                Diplomes: res.data.diplomes,
+                Langues: res.data.langues,*/
                 reviewsOnBrico: array3
 
             })  .then(Swal.fire({

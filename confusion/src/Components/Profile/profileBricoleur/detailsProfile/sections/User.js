@@ -5,7 +5,7 @@ import "./User.css"
 
 
 const url = "https://mail.google.com/mail/u/0/#inbox?compose=new"
-const User = () => {
+const User = (props) => {
   const [profileName, setProfileName] = useState("");
   const [profileCell, setProfileCell] = useState("");
   const [profileImage, setProfileImage] = useState("");
@@ -14,7 +14,7 @@ const User = () => {
   const profileData = async () => {
     try {
       {/*const res = await axios.get("https://localhost:8080/bricoleur");*/}
-      const res = await axios.get("http://localhost:8080/bricoleurs/30");
+      const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
       setProfileCell(res.data.phone);
       setProfileEmail(res.data.email);
       setProfileImage(res.data.photo);
@@ -68,7 +68,7 @@ const User = () => {
                     <p></p>
                     <p></p>
                     <p></p>
-                    <Review className="ReviewModal" id="ReviewInModal" />
+                    <Review user={props.user} className="ReviewModal" id="ReviewInModal" />
             </div>
         </div>
         <br />
