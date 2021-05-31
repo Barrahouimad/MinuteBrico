@@ -8,7 +8,7 @@ const ClientToBrico=()=>{
     const [user,setUser]=useState({});
    // alert(id);
   useEffect(()=>{
-         alert(id)
+         //alert(id)
             axios.get( "http://localhost:8080/bricoleurs/"+id)  
             
             .then(res=>{

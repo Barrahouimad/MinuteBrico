@@ -5,7 +5,7 @@ import Swal from 'sweetalert2'
 import './style.css'
 import axios from 'axios'
 
-const url ="http://localhost:3000/profile"  // on preciser une autre url apres (this is just)
+const url ="http://localhost:3000/home"  // on preciser une autre url apres (this is just)
 const Review = (props) => {
 
     const [rating , setRating]=useState(null);  
@@ -25,20 +25,31 @@ const Review = (props) => {
         
         .then(res=>{
             
-            const revwtab =[];
+            const array3 =[];
             const revw={
                
                 star : rating,
                 comment : review
+
               }
-              const array3 = revwtab.concat(res.data.reviewsOnBrico);
-              revwtab.push(res.data.reviewsOnBrico)
+
+              for(let i =0; i<res.data.reviewsOnBrico.length;i++){
+                const revw2={
+                    star : res.data.reviewsOnBrico[i].star,
+                    comment : res.data.reviewsOnBrico[i].comment
+                  }
+
+                  array3.push(revw2)
+              }
+             // const array3 = revwtab.concat(res.data.reviewsOnBrico);
+            //  revwtab.push(res.data.reviewsOnBrico)
               //alert(revwtab)
               array3.push(revw)
               //console.log(array3)
               //alert(revwtab)
+              //alert(props.user.id )
             axios.put("http://localhost:8080/bricoleurs/"+props.user.id , {
-               
+              
                /* photo: res.data.photo,
                 firstName: res.data.firstName,
                 lastName: res.data.lastName,
@@ -54,7 +65,6 @@ const Review = (props) => {
                 Diplomes: res.data.diplomes,
                 Langues: res.data.langues,*/
                 reviewsOnBrico: array3
-
             })  .then(Swal.fire({
                 title: 'Merci',                
                 text: 'votre avis a été bien enregistré',
