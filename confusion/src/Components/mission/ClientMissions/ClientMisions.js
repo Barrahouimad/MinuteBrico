@@ -8,13 +8,13 @@ const ClientMissions =(props)=>{
     return(
         <div id="ClientMissions">
             <Nav  data={props.data} />
-            <div id="container" className="Container">
+            <div id="containerr" >
                 <div className="row justify-content-center">
                     <div style={{background:"#D1653E",textColor:"white",padding:"5px"}} className="col-md-6 col-xs-10">
-                            <h1 id="h1">Récapitulatif de vos missions</h1>
+                            <h1 id="h11" >Récapitulatif de vos missions</h1>
                     </div>
                     <div style={{background:"#D1653E",marginLeft:"10px",padding:"5px"}} className="ml-3 col-md-2 col-xs-10">
-                            <h1 id="h1">Status de mission</h1>
+                            <h1 id="h11" >Status de mission</h1>
 
                     </div>
                </div>
