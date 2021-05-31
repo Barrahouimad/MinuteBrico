@@ -15,9 +15,10 @@ const [motcle,setMotcle]=React.useState(' ');
 const[currentpage,setCurrentpage]=React.useState(1);
 const[postperpage,setPostperpage]=React.useState(4);
 
+const paginate= pageNumber=>setCurrentpage(pageNumber);
+
 const indexOfLastCarte=currentpage*postperpage;
 const indexOfFirstCarte=indexOfLastCarte - postperpage;
-const paginate= pageNumber=>setCurrentpage(pageNumber);
   function radioHandler(event){
 
       setradioBoutton(1);
@@ -32,6 +33,23 @@ const paginate= pageNumber=>setCurrentpage(pageNumber);
        //console.log("from tab : "+tab);
        return tab;
   }
+
+  function equals(tab1,tab2){
+    
+    for(let i=0;i<tab1.length;i++){
+      if(!tab1.includes(tab2[i])){
+        return false;
+      }
+      for(let j=0;j<tab2.length;j++){
+        if(!tab1.includes(tab1[j])){
+          return false;
+        }
+        return true;
+    }
+  }}
+  const tab1=["electromenage","jardinage"]
+  const tab2=["jardinage","electromenage"]
+ // alert(" function"+ equals(tab1,tab2));
   function radioHandlerNon(event){
 
       setradioBoutton(0);
@@ -116,7 +134,7 @@ const fetcher = (url) => fetch(url).then(res =>{return res.json()} )
 
 
 //
-const currentCartes=data.slice(indexOfFirstCarte,indexOfLastCarte);
+const currentCartes=data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).slice(indexOfFirstCarte,indexOfLastCarte);
 //alert(currentCartes[0].id);
 //setNombrecarte(data.length);
 
@@ -206,7 +224,7 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                 
                    <div className="col-md-7"  style={{background:"white",position:"relative",top:"14px",left:"30px",height:"650px"}}>
                        <div style={{position:"relative",top:"10px",left:"45%"}}>
-                      <Pagination totalcartes={data.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||(((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
+                       <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
                       carteparpage={postperpage} paginate={paginate} />
 
                       </div>
@@ -217,10 +235,10 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                    
 
                       <div id="box"  style={{ borderRadius:"2px",height:"90%",width:"96%",position:"realative",top:"40px"}} > 
-                       <MissionItems user={props.data} data={currentCartes.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
+                       <MissionItems user={props.data} data={currentCartes.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
                        
                       </div>
-                      <Pagination totalcartes={data.filter((x)=>(((JSON.stringify(objToTab(x.categories))===JSON.stringify(categories)) && (x.mission_description.includes(motcle)) )||(((x.categories.filter((y)=>(categories.includes(y.nom))).length==0)?false:true) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
+                      <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
                       carteparpage={postperpage} paginate={paginate} />
                   </div>
                   </div>
