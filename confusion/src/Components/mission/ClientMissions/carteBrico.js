@@ -38,7 +38,7 @@ const carte=brico.map((brico)=>{
                 <img src="/assets/logo.png" style={{height:"110px",width:"70px"}}/>
              </div>
              <div className="col-md-auto  p-3">
-                 <Link to={"profile/"+brico.id}> <p style={{color:"black"}} > {brico.firstName+" "+brico.lastName}</p></Link>
+                 <a className="navlink" href={"http://localhost:3000/profile/"+brico.id}> <p style={{color:"black"}} > {brico.firstName+" "+brico.lastName}</p></a>
              </div>
              <div className="col-md-3 p-3">
                  <h3>Disponibilité </h3>

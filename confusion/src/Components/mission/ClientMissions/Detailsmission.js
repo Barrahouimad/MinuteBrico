@@ -9,7 +9,7 @@ const DetailsMissions=(props)=>{
     return(
         <div id="detailsMissions">
            <Nav data={props.data}/>
-           <div  className="Container mt-3">
+           <div  className=" mt-3">
                 <div className="row justify-content-center">
                     <div style={{background:"#D1653E",textColor:"white",padding:"5px",paddingRight:"25em"}} className="col-md-6 col-xs-10">
                             <h1>Récapitulatif de vos missions</h1>
