@@ -18,7 +18,7 @@ function Domaines(props) {
 
   useEffect(() => {
     profileData();
-  }, []); 
+  }); 
 
   const lesCertifications= (certifications)=>{
     let array = []
@@ -41,13 +41,13 @@ function Domaines(props) {
     );
   }
 
-    return (
+return (
       <div className="cursus">
         <h3>Certifications experiences</h3>
         {lesCertifications(certification)}
       </div>
-    )
-}
+    )}
+
 
 
 export default Domaines

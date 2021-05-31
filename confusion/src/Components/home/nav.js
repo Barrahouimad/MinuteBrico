@@ -12,7 +12,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
 
     return (
       <div className="navbar">
-        <Link to="/home"><img alt="..." src="/assets/logo.png" className="logo" /></Link>
+        <Link to="/home" ><img alt="..." src="/assets/logo.png" className="logo" /></Link>
         <ul className="center">
           <Link to="/missions" ><li>Missions</li></Link>
           <Link id="mespostules"  to="/postulemissions" ><li>Mes postules</li></Link>
@@ -46,15 +46,32 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
     <ul className="center">
       <Link to="/missions" ><li>Missions</li></Link>
       <Link  to="/createMission" ><li>Créer Mission</li></Link>
-      <Link to="/Mesmissions" ><li>Mes Créations</li></Link>
-      
+
     </ul>
 <div className="d-flex content-justify-between">
       <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
         <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="/assets/career.png"/>
       </div>
-      <p className="p-2">{props.data.firstName+" "+props.data.lastName}</p>
+
+   
+
+
+
+      <button onClick={()=>setPop(!pop)} ><i class="fa fa-user-circle"></i>  {props.data.firstName+" "+props.data.lastName}</button>
+   
+  
+   {pop &&  <ul class=" menu-overr main-menu menu">
+              <Link to="/Mesmissions" ><li>Mes Créations</li></Link>
+              <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown">Parametres</li></Link>
       <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
+       
+   </ul>
+   }
+
+
+
+
+    
     </div>
   </div>
     )}

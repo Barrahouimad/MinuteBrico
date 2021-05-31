@@ -9,6 +9,7 @@ function Profil(props) {
         try {
          
           const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
+          //alert("from profile "+props.user.id)
           setProfilDescreption(res.data.descriptionProfil);
           setProfileName(
             `${res.data.firstName} ${res.data.lastName}`
@@ -21,15 +22,16 @@ function Profil(props) {
     
       useEffect(() => {
         profileData();
-      }, []);
-    return (
+      });
+
+      if(props.user.length!=0)  { return (
         <div className = "profil mb5">
             <h3>à propos de {profileName}</h3>
             <p>
               {ProfilDescreption}
             </p>
         </div>
-    )
+    )}
 }
 
 

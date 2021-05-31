@@ -9,6 +9,7 @@ import '../home/Cards.css';
 
 const PostuleMission=(props)=>{
   const [show,setShow]=useState(false);
+  const [acceper,setEstaccepe]=useState(0);
   const handelAccept =(mission)=>{
     //alert("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
     Axios.put("http://localhost:8080/BricoAccept/"+props.user.id+"/"+mission+"/1")
@@ -66,6 +67,17 @@ const { data, error } = useSWR('http://localhost:8080/bricoleurs/'+props.user.id
 
 const Missions= data.missions.map((item)=>{
     console.log("hello"+ item.id);
+          
+    Axios.get("http://localhost:8080/accepterbrico/"+props.user.id+"/"+item.id)
+          
+    .then(res=>{
+      setEstaccepe(res.data)
+     // alert("accepter response "+ res.data)
+    })
+    .catch(err =>{
+    alert(err)
+        })
+
 
     const id=item.id;
        return(
@@ -80,10 +92,10 @@ const Missions= data.missions.map((item)=>{
                 label={item.titre_mission}
                 path='/comment'
               />
-              {(item.etat_mission==2)?  <div className="d-flex flex-row align-items-around p-3">
+              {(acceper==2)?  <div className="d-flex flex-row align-items-around p-3">
                   <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
                   <button className="btn btn-outline-danger">Refuser</button>
-              </div>:((item.etat_mission==1)?<div style={{color:"green",fontSize:"2em"}} ><p>Vous l'avais accepté</p></div>:<div style={{color:"red",fontSize:"2em"}} >Pas de réponse</div>)}
+              </div>:((acceper==1)?<div style={{color:"green",fontSize:"2em"}} ><p>Vous l'avais accepté</p></div>:<div style={{color:"red",fontSize:"2em"}} >Pas de réponse</div>)}
             
       </div>
     </div>

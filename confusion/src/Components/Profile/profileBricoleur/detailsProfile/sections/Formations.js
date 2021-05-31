@@ -19,7 +19,7 @@ function Formation(props) {
 
   useEffect(() => {
     profileData();
-  }, []);
+  });
 
 
   const lesDiplomes= (diplomes)=>{
@@ -43,7 +43,7 @@ function Formation(props) {
     );
   }
   
-    return (
+  return (
         <div className="cursus mb3">
           <h3> <i class="fa fa-university" aria-hidden="true"></i>
              Formations</h3>

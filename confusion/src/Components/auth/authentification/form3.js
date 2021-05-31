@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SweetAlert from 'sweetalert2-react';
 
 //const url = "http://localhost:3000/profile_brico";
-const url = "/";
+const url = "/home";
 
 class Form3 extends Component {
     generateString(length) {
@@ -63,15 +63,15 @@ class Form3 extends Component {
                 lastName:lastName,
                 displayName : '',
                 ville : '' ,
-                birthDate:birthDate,
+                birthday:birthDate,
                 adresse:adresse,           
                 phone :phone,
-                Categorie:Categorie,
-                Certification:certifications,
-                Diplomes:diplomes,
+                categorie:Categorie,
+                certification:certifications,
+                diplomes:diplomes,
                 role:"Bricoleur",
                 token:token,
-                Langues:Langues
+                langues:Langues
             })
             .then(res=>{
                 alert("merci de verifier votre boite pour confirmer votre compte");
@@ -98,7 +98,7 @@ class Form3 extends Component {
 
                     
                 }
-                alert(data.Categorie);
+              // alert(data.Categorie);
               })
         }
         else{

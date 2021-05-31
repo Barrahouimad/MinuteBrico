@@ -15,6 +15,7 @@ const User = (props) => {
     try {
       {/*const res = await axios.get("https://localhost:8080/bricoleur");*/}
       const res = await axios.get("http://localhost:8080/bricoleurs/"+props.user.id);
+    
       setProfileCell(res.data.phone);
       setProfileEmail(res.data.email);
       setProfileImage(res.data.photo);
@@ -28,7 +29,7 @@ const User = (props) => {
 
   useEffect(() => {
     profileData();
-  }, []);
+  });
 
 
    const clickBtn = ()=>{
@@ -43,7 +44,7 @@ const User = (props) => {
   const GoMail = () =>{
     document.location.href=url
   }
-    return (
+   if(props.user.length!=0) { return (
 
     <div className="user" >
         <img className="user__avatar" src={profileImage} style={{ width: "100%" }} />
@@ -75,7 +76,13 @@ const User = (props) => {
     </div>
   
     
-  )
+  )}else{
+    return(
+      <div>
+        
+      </div>
+    );
+  }
 }
 
 export default User

@@ -23,7 +23,7 @@ function Avis(props) {
   
   useEffect(() => {
     profileData();
-  }, []);
+  });
    
  // const nbrStar = reviewsbrico.star
 
@@ -62,12 +62,12 @@ function Avis(props) {
     );
   }
     
-    return (
+  if(props.user.length!=0) { return (
         <div className = "profil mb5">
             <h3>Avis</h3>
              {lesReviews(reviewsbrico)}
         </div>
-    )
+    )}
 }
 
 
