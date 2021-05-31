@@ -15,7 +15,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
         <Link to="/home"><img alt="..." src="/assets/logo.png" className="logo" /></Link>
         <ul className="center">
           <Link to="/missions" ><li>Missions</li></Link>
-          <Link id="mespostules" className="p-2" to="/postulemissions" >Mes postules</Link>
+          <Link id="mespostules"  to="/postulemissions" ><li>Mes postules</li></Link>
         </ul>
       <div className="d-flex content-justify-between">
           <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >

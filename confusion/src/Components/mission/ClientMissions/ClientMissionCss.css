@@ -9,14 +9,14 @@
     background-size: cover;
     overflow-y: scroll;
 }
-#container{
+#containerr{
     position:absolute;
     left:5%;
     right:0px;
     top:150px;
     color:rgb(156, 148, 148);
 }
-#h1{
+#h11{
     color:white;
     font-size:30px;
 }
