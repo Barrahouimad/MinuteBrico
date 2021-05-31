@@ -31,14 +31,16 @@ class Signup extends Component {
         var pass2 = document.getElementById("pass2")
         var email = document.getElementById("IdEmail")
         var password = document.getElementById("pass1")
+        var firstName = document.getElementById("firstName")
+        var lastName = document.getElementById("lastName")
         const token=this.generateString(10);
         var pass12 = document.getElementById("pass1").value.length;
         var pass22 = document.getElementById("pass2").value.length;
         if(pass1.value==pass2.value  && pass12!==0 && pass22!==0 ){
     
           Axios.post("http://localhost:8080/Client",{
-            firstName :"",
-            lastName : "",
+            firstName :firstName.value,
+            lastName : lastName.value,
             email : email.value,
             password : password.value,
             token:token,
@@ -78,10 +80,11 @@ class Signup extends Component {
         //preventDefault();
 
         const IdEmail =document.getElementById("IdEmail").value.length;
-        const phoneNumber =document.getElementById("phoneNumber").value.length;
+        const firstName =document.getElementById("firstName").value.length;
+        const lastName =document.getElementById("lastName").value.length;
         const pass1 = document.getElementById("pass1").value.length;
         const pass2 = document.getElementById("pass2").value.length; 
-        if(IdEmail !==0 &&  phoneNumber !==0 && pass1 !==0 && pass2 !==0 ){
+        if(IdEmail !=0 &&  firstName !=0 && pass1 !=0 && pass2 !=0 && lastName!=0 ){
             this.props.nextStep();
         }
         else{
@@ -131,10 +134,18 @@ class Signup extends Component {
                             <label className="form-label" htmlFor="form5Example1">Adresse e-mail <span style={{color:'red'}}>*</span> </label>
                             <input placeHolder="Adresse e-mail" type="email" className="form-control" id="IdEmail" name="email" onChange={inputChange('email')} value={values.email} required />
                         </div>
+
                         <div className="form-outline mb-4 md-5">
-                            <label className="form-label" htmlFor="form5Example1">Numéro de telephone <span style={{color:'red'}}>*</span> </label>
-                            <input placeHolder="Numéro de telephone" type="phone" className="form-control" id="phoneNumber" name="phone" onChange={inputChange('phone')} value={values.phone} required />
+                            <label className="form-label" htmlFor="form5Example1">Prénom <span style={{color:'red'}}>*</span> </label>
+                            <input  placeHolder="Prénom"  className="form-control" id="firstName" name="firstName" onChange={inputChange('firstName')} value={values.firstName} required />
                         </div>
+
+                        <div className="form-outline mb-4 md-5">
+                            <label className="form-label" htmlFor="form5Example1">Nom <span style={{color:'red',}}>*</span> </label>
+                            <input  placeHolder="Nom" className="form-control" id="lastName" name="lastName" onChange={inputChange('lastName')} value={values.lastName} required />
+                        </div>
+
+
                         <div className="form-outline mb-4 md-5">
                             <label className="form-label" htmlFor="form5Example1">Mot de passe <span style={{color:'red'}}>*</span> </label>
                             <input placeHolder="Mot de passe" type="password" className="form-control" id="pass1" name="password1" onChange={inputChange('password')} value={values.password} required />

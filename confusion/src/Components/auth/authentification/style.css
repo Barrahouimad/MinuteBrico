@@ -30,8 +30,8 @@
 
 
 ._login>.SignUpPage>a>.logo{
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
 }
 ._login>.SignUpPage>.title{
     font-size: 30px;
