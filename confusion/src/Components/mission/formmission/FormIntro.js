@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select'
+import {Link} from 'react-router-dom';
 
 export class FormIntro extends Component {
 
@@ -18,6 +19,8 @@ export class FormIntro extends Component {
 
         return (
             <div className="form-container">
+              <Link to="/home" ><img style={{width:"200px",height:"130px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
+
                 <h1 className="nb-5" >Pour poster une mission, veuillez remplir ce formulaire!</h1>
                 <h3 className="nb-5">Nos MinuteBricoleurs seront à votre disposition dès que vous postez votre mission.</h3>
                 <br />

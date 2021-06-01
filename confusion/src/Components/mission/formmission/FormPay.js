@@ -17,7 +17,7 @@ export class FormPay extends Component {
             mission_description: input.description ,
             date:input.date ,
             zip_code: input.zipcode } 
-            alert(" table "+input)
+           // alert(" table "+input)
    /*  Axios.post("http://localhost:8080/missions/"+this.props.user.id,{
          
               categorie:[input.category],

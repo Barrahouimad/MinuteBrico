@@ -50,7 +50,7 @@ export class FormMission extends Component {
     };
 
     handleChange = (newValue) => {
-
+      
         this.setState({ category: newValue })
     };
 
@@ -108,7 +108,8 @@ export class FormMission extends Component {
                 );*/}
             case 4:
                 return (
-                    <Success values={values} />
+                    <Success values={values} 
+                    user={this.props.user} />
                 );
         }
     }
