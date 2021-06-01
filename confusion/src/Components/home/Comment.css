@@ -68,11 +68,11 @@
   align-items: center;
 }
 
-.comment-link-items h2 {
+.comment-link-items h1 {
   margin-bottom: 16px;
 }
 
-.comment-link-items > h2 {
+.comment-link-items > h1 {
   color: #D1653E;
   align-items: center;
 }

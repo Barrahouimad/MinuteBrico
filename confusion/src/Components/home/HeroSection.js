@@ -19,10 +19,10 @@ function HeroSection(props) {
     return (
     <div className='hero-container'>
     <video src='../videos/video-1.mp4' autoPlay loop muted />
-    <h1>Bonjour chers Client</h1>
-    <p>Trouver le Meilleur Bricoleur pour résoudre tous vos problèmes</p>
+    <h1>Bonjour chers clients</h1>
+    <p>Trouver un MinuteBricoleur pour toutes vos bricoles maison!</p>
     <div className='hero-btns'>
-     <Link  to="/switch"><button style={{height:"100px",width:"320px",borderRadius:"22px",fontSize:"22px"}} className="btn btn-outline-success" >Devenir bricoleur</button></Link> 
+     <Link  to="/switch"><button style={{height:"100px",width:"320px",borderRadius:"22px",fontSize:"22px"}} className="boutton" >Devenir bricoleur</button></Link> 
     </div>
   </div>
   

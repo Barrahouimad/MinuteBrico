@@ -74,7 +74,7 @@ const Login =(props)=> {
               onConfirm={() => setShowErr(false)}
             />
            <Link to="/home"> <img alt="..." src="/assets/logo.png" className="logo" /></Link>
-            <p className="title">Connecter à votre compte</p>
+            <p className="title">Connexion</p>
             <form onSubmit={(e)=>{
               e.preventDefault()
               Verify()
@@ -86,7 +86,7 @@ const Login =(props)=> {
                 <label class="form-check-label mx-5" for="flexCheckDefault">
                   Bricoleur ?
                 </label>
-                <input type="submit" className="Submit" value="Se connecte" />
+                <input type="submit" className="Submit" value="Se connecter" />
             </form>
             <div className="Or">
               <div className="bar"></div>

@@ -13,7 +13,13 @@ export class FormIntro extends Component {
         const options = [
             { value: 'peinture', label: 'Peinture' },
             { value: 'jardinage', label: 'Jardinage' },
-            { value: 'plomberie', label: 'Plomberie' }
+            { value: 'plomberie', label: 'Plomberie' }, 
+            { value: 'broderie', label: 'Broderie' }, 
+            { value: 'menuiserie', label: 'Menuiserie' }, 
+            { value: 'demenegement', label: 'Déménagement' }
+
+
+
         ]
         
 
