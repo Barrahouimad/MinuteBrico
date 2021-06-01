@@ -26,7 +26,7 @@ function Profil(props) {
 
       if(props.user.length!=0)  { return (
         <div className = "profil mb5">
-            <h3>à propos de {profileName}</h3>
+            <h6>à propos de {profileName}</h6>
             <p>
               {ProfilDescreption}
             </p>

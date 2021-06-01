@@ -64,7 +64,7 @@ function Avis(props) {
     
   if(props.user.length!=0) { return (
         <div className = "profil mb5">
-            <h3>Avis</h3>
+            <h6>Avis</h6>
              {lesReviews(reviewsbrico)}
         </div>
     )}

@@ -45,8 +45,8 @@ function Formation(props) {
   
   return (
         <div className="cursus mb3">
-          <h3> <i class="fa fa-university" aria-hidden="true"></i>
-             Formations</h3>
+          <h6> <i class="fa fa-university" aria-hidden="true"></i>
+             Formations</h6>
           {lesDiplomes(diplome)}
         </div>
     )

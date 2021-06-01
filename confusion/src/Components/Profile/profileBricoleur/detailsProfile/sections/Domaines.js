@@ -43,7 +43,7 @@ function Domaines(props) {
 
 return (
       <div className="cursus">
-        <h3>Certifications experiences</h3>
+        <h6>Certifications et experiences</h6>
         {lesCertifications(certification)}
       </div>
     )}
