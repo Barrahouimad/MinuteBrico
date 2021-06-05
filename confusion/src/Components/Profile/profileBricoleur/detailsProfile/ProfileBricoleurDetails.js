@@ -31,7 +31,9 @@ useEffect(()=>{
 })
     return (
       <div className="App">
+
          <div className="grid__container">
+
            
           <div className="sidebar">
 
@@ -40,7 +42,8 @@ useEffect(()=>{
               <Langues user={props.user}/>
           </div>
           <div className="main">
-          <Link to="/home" ><img style={{width:"200px",height:"130px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
+          <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
+
 
             <Profil user={props.user}/>
             <FormationDomaines user={props.user}/>

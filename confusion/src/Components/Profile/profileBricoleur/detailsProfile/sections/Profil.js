@@ -26,7 +26,9 @@ function Profil(props) {
 
       if(props.user.length!=0)  { return (
         <div className = "profil mb5">
-            <h6>à propos de {profileName}</h6>
+            <h6><i class="fa fa-id-badge" aria-hidden="true"></i>
+à propos de {profileName} {/*<a style={{float:"right"}}><i class="fa fa-pencil" aria-hidden="true"></i></a>*/}</h6> 
+
             <p>
               {ProfilDescreption}
             </p>

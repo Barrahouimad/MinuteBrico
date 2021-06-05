@@ -7,10 +7,10 @@ function Localisation() {
 
   return (
       <div className = "user">
+        <br/>
 
           {/*fetch data from backend and feed with get and axios*/}
-        <h2> <i class="fa fa-location-arrow" aria-hidden="true"></i> 
-   Ville, Maroc </h2>
+        <h1> <i class="fa fa-map-marker" aria-hidden="true"></i> Ville, Maroc </h1>
         <br/>
         //eslint-disable-next-line 
         <br/>

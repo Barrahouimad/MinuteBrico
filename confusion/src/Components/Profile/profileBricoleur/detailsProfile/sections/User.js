@@ -49,17 +49,17 @@ const User = (props) => {
     <div className="user" >
         <img className="user__avatar" src={profileImage} style={{ width: "100%" }} />
         <h1 className="user__name">{profileName}</h1>
-        <p className="user__profession">Bricoleur Pro</p><br />
+        <p className="user__profession">Bricoleur Professionel</p><br />
 
-        <button style={{backgroundColor:"#D4643C",color:"white"}} className= "btn">Contacter via Mobile <i class="fa fa-phone-square" aria-hidden="true"></i>
+        <button style={{backgroundColor:"#D4643C",color:"white"}} className= "btn"><i class="fa fa-phone-square" aria-hidden="true"></i> Contacter via Mobile 
 </button>
         <br/>
         <br/>
-        <button onClick={GoMail} style={{backgroundColor:"#D4643C",color:"white"}} className= "btn ">Contacter via email <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        <button onClick={GoMail} style={{backgroundColor:"#D4643C",color:"white"}} className= "btn "><i class="fa fa-paper-plane" aria-hidden="true"></i> Contacter via email 
 </button>
         <br/>
         <br/>
-        <button style={{backgroundColor:"#D4643C",color:"white"}} onClick={clickBtn} id="myBtn" className= "btn "> Laisser un avis <i class="fa fa-star" aria-hidden="true"></i>
+        <button style={{backgroundColor:"#D4643C",color:"white"}} onClick={clickBtn} id="myBtn" className= "btn "><i class="fa fa-star" aria-hidden="true"></i> Laisser un avis 
 </button>
         <div id="myModal" className="modal">
             <div className="modal-content">

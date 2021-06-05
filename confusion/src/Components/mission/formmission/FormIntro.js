@@ -27,7 +27,7 @@ export class FormIntro extends Component {
             <div className="form-container">
               <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
 
-                <h1 className="nb-5" >Veuillez remplir ce formulaire!</h1>
+                <h1 className="nb-5" >Veuillez remplir le formulaire </h1>
                 <h3 className="nb-5">Nos Bricoleurs seront à votre disposition dès que vous postez votre mission.</h3>
                 <br />
                 <div className="form-group">

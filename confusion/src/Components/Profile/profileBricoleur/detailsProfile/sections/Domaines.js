@@ -43,7 +43,8 @@ function Domaines(props) {
 
 return (
       <div className="cursus">
-        <h6>Certifications et experiences</h6>
+        <h6><i class="fa fa-certificate" aria-hidden="true"></i>
+Certifications et experiences</h6>
         {lesCertifications(certification)}
       </div>
     )}
