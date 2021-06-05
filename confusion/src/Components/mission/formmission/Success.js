@@ -6,7 +6,7 @@ export class Success extends Component {
         let { values } = this.props;
           values={...values}
       //  alert("in success "+this.props.user.id+"     donne mission "+values.category.value);
-     alert( "categorie:"+[values.category.value]+"    titre_mission: et id " +values.title+this.props.user.id+"    state: 0  adresse:"+values.address+ " etat_mission: 0 images: null ville:"+values.ville+"      interval_temp: 480000    mission_description:"+ values.description+ " date:"+values.date+"     zip_code: "+values.zipcode )
+    // alert( "categorie:"+[values.category.value]+"    titre_mission: et id " +values.title+this.props.user.id+"    state: 0  adresse:"+values.address+ " etat_mission: 0 images: null ville:"+values.ville+"      interval_temp: 480000    mission_description:"+ values.description+ " date:"+values.date+"     zip_code: "+values.zipcode )
   
      
          //  const response=await axios.post("http://localhost:8080/missions/"+this.props.user.id,values);
@@ -25,7 +25,7 @@ export class Success extends Component {
            zip_code: values.zipcode 
            })
               .then(res=>{
-                 alert(res.data)
+                 //alert(res.data)
               })
               .catch(err =>{
                alert(err)

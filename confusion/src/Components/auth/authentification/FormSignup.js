@@ -40,7 +40,7 @@ class FormSignup extends Component {
         }],
 
         Langues :[{
-            name_language : '',
+            langue : '',
 
         }]
     };
@@ -70,7 +70,7 @@ class FormSignup extends Component {
     }
     setCategorie=(cat)=>{
         this.setState({ Categorie: cat });
-        alert("from setcategory "+this.state.Categorie);
+       // alert("from setcategory "+this.state.Categorie);
     };
   
     render() {
