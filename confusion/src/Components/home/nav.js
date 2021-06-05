@@ -88,7 +88,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
 
         <ul className="auth">
           <Link to="/login" ><li className="seconnect">Se connecter</li></Link>
-          <Link to="/sign-up" ><li className="signup">S'incrire</li></Link>
+          <Link to="/sign-up" ><li className="signup">S'inscrire</li></Link>
         </ul>
 
       </div>

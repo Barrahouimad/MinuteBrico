@@ -26,11 +26,11 @@ a{
 .navbar>.center>a>li{
     font-family: Arial;
     font-size:20px;
-    color:#8C8C8C;
+    color: black;
     margin-right: 40px;
 }
 .navbar>.center>a>li:hover{
-    color: black;
+    color: #8C8C8C;
 }
 .navbar>.center{
     font-family: Arial;
@@ -117,4 +117,7 @@ ul{
     text-decoration: none;
     list-style-type: none;
     text-align: left;
+}
+li {
+    color: black;
 }

@@ -25,27 +25,27 @@ export class FormIntro extends Component {
 
         return (
             <div className="form-container">
-              <Link to="/home" ><img style={{width:"200px",height:"130px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
+              <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
 
-                <h1 className="nb-5" >Pour poster une mission, veuillez remplir ce formulaire!</h1>
-                <h3 className="nb-5">Nos MinuteBricoleurs seront à votre disposition dès que vous postez votre mission.</h3>
+                <h1 className="nb-5" >Veuillez remplir ce formulaire!</h1>
+                <h3 className="nb-5">Nos Bricoleurs seront à votre disposition dès que vous postez votre mission.</h3>
                 <br />
                 <div className="form-group">
-                    <label htmlFor="title" >Titre de mission: </label>
+                    <label style={{float:"left"}} htmlFor="title" >Titre de mission:<span style={{color:'red'}}>*</span> </label>
                     <input required type="text" className="form-control" name="title" onChange={inputChange('title')} value={values.title} />
                 </div>
                 <br />
                 
                 <div className="form-group">
-                    <label htmlFor="description" >Descriptif de mission: </label>
+                    <label style={{float:"left"}} htmlFor="description" >Descriptif de mission: <span style={{color:'red'}}>*</span></label>
                     <textarea required type="text" className="form-control" name="description" onChange={inputChange('description')} value={values.description} />
                 </div>
                 {erreur && <div className="alert alert-danger" role="alert">
-                    Erreur length
+                    Veuillez ne pas dépasser 100 caractères 
                 </div>}
                 <br />
-                <div className="form-group">
-                    <label htmlFor="category" >Compétences requises: </label>
+                <div style={{float:"left"}} className="form-group">
+                    <label htmlFor="category" >Compétences requises: <span style={{color:'red'}}>*</span></label>
                     <Select
                         type="text" className="form-control" name="category" onChange={selectChange} value={values.category}
                         options={options} />
@@ -55,7 +55,7 @@ export class FormIntro extends Component {
                 <br />
 
                 <div className="text-center">
-                    <button disabled={erreur==true || values.description.length <= 0 || values.category=='' } className="btn btn-primary" onClick={() => this.continue(values)}>Page Suivante</button>
+                    <button style={{float:"right"}} disabled={erreur==true || values.description.length <= 0 || values.category=='' } className="btn btn-primary" onClick={() => this.continue(values)}>Page Suivante</button>
                 </div>
 
             </div>
