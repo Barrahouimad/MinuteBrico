@@ -23,9 +23,9 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
          <button onClick={()=>setPop(!pop)} >{props.data.firstName+" "+props.data.lastName} <i class="fa fa-chevron-circle-down" aria-hidden="true"></i> </button>
   
         {pop &&  <ul class=" menu-overr main-menu menu">
-           <Link to="/profile" ><li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-user" aria-hidden="true"></i> Profile</li></Link>
-           <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-cog" aria-hidden="true"></i> Parametres</li></Link>
-           <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </button>
+           <Link to="/profile" ><li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-user" aria-hidden="true"></i> Profil</li></Link>
+           <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-cog" aria-hidden="true"></i> Paramètres</li></Link>
+           <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion </button>
             
         </ul>
         }
@@ -46,21 +46,19 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
 
     </ul>
 <div className="d-flex content-justify-between">
-      <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
-        <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="/assets/career.png"/>
-      </div>
+
 
    
 
 
 
-      <button onClick={()=>setPop(!pop)} ><i class="fa fa-user-circle"></i>  {props.data.firstName+" "+props.data.lastName}</button>
+      <button onClick={()=>setPop(!pop)} >{props.data.firstName+" "+props.data.lastName} <i class="fa fa-chevron-circle-down" aria-hidden="true"></i> </button>
    
   
    {pop &&  <ul class=" menu-overr main-menu menu">
-              <Link to="/Mesmissions" ><li>Mes Créations</li></Link>
-              <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown">Parametres</li></Link>
-      <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
+              <Link to="/Mesmissions" ><li> <i class="fa fa-list" aria-hidden="true"></i> Mes missions</li></Link>
+              <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-cog" aria-hidden="true"></i> Paramètres</li></Link>
+      <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4"><i class="fa fa-sign-out" aria-hidden="true"></i> Déconnexion </button>
        
    </ul>
    }

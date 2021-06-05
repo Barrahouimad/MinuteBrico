@@ -72,5 +72,11 @@ video {
 }
 
 .boutton{
-  background-color: #D1653E;
+  background-color: #d1653e;
+
+}
+
+button {
+  color: -internal-light-dark(#24342d, white);
+
 }
