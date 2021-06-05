@@ -190,9 +190,9 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                             </div>
                             
                               <div className="form-check d-flex flex-row">
-                                  <input className="form-check-input" type="checkbox" onClick={(event)=>handelcheckboxclick(event,categories)} value="Bricolage maison" id="flexCheckDefault"/>
+                                  <input className="form-check-input" type="checkbox" onClick={(event)=>handelcheckboxclick(event,categories)} value="broderie" id="flexCheckDefault"/>
                                   <label className="form-check-label mx-2" for="flexCheckDefault">
-                                  Bricolage maison
+                                  broderie
                                   </label>
                             </div>
                             <div className="form-check d-flex flex-row">
@@ -208,9 +208,9 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                                   </label>
                             </div>
                             <div className="form-check d-flex flex-row">
-                                  <input className="form-check-input" type="checkbox" onClick={(event)=>handelcheckboxclick(event,categories)} value="Montage de meubles" id="flexCheckDefault"/>
+                                  <input className="form-check-input" type="checkbox" onClick={(event)=>handelcheckboxclick(event,categories)} value="demenegement" id="flexCheckDefault"/>
                                   <label className="form-check-label mx-2" for="flexCheckDefault">
-                                  Montage de meubles
+                                  demenegement
                                   </label>
                               
                                 
