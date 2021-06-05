@@ -18,17 +18,14 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
           <Link id="mespostules"  to="/postulemissions" ><li>Mes postules</li></Link>
         </ul>
       <div className="d-flex content-justify-between">
-          <div className="p-2" style={{boxShadow:"2px 2px 6px", borderRadius:"62px" ,height:"50px",width:"50px"}} >
-            <img style={{borderRadius:"62px", height:"100%",width:"100%"}} src="assets/career.png"/>
-          </div>
+
   
-         <button onClick={()=>setPop(!pop)} ><i class="fa fa-user-circle"></i>  {props.data.firstName+" "+props.data.lastName}</button>
-   
+         <button onClick={()=>setPop(!pop)} >{props.data.firstName+" "+props.data.lastName} <i class="fa fa-chevron-circle-down" aria-hidden="true"></i> </button>
   
         {pop &&  <ul class=" menu-overr main-menu menu">
-           <Link to="/profile" ><li class=" item-over menu-item menu-item-has-children dropdown">Profile</li></Link>
-           <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown">Parametres</li></Link>
-           <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4">Logout </button>
+           <Link to="/profile" ><li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-user" aria-hidden="true"></i> Profile</li></Link>
+           <Link to="/editprofile" > <li class=" item-over menu-item menu-item-has-children dropdown"><i class="fa fa-cog" aria-hidden="true"></i> Parametres</li></Link>
+           <button onClick={()=>{Cookies.set('Token',null);  document.location.href="http://localhost:3000/home";}} style={{borderRadius:"22px", height:"",width:""}} className="btn btn-outline-danger p-2 mb-4"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </button>
             
         </ul>
         }
@@ -88,7 +85,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
 
         <ul className="auth">
           <Link to="/login" ><li className="seconnect">Se connecter</li></Link>
-          <Link to="/sign-up" ><li className="signup">S'incrire</li></Link>
+          <Link to="/sign-up" ><li className="signup">S'inscrire</li></Link>
         </ul>
 
       </div>

@@ -10,8 +10,11 @@ function HeroSection(props) {
     return (
       <div className='hero-container'>
         <video src='../videos/video-1.mp4' autoPlay loop muted />
-        <h1>Bienvenue chers Bricoleur</h1>
-        <p>N'hésiter surtout pas à postuler aux missions</p>
+        <h1>Bienvenue chers bricoleurs,</h1>
+        <p>Travaillez en freelance et gagnez votre vie avec MinuteBrico!</p>
+        <br/>
+        <Link  to="/missions"><button style={{height:"100px",width:"320px",borderRadius:"22px",fontSize:"22px"}} className="boutton" >Voir les missions postées</button></Link> 
+
        
       </div>
     );

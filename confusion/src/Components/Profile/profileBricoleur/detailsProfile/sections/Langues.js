@@ -35,10 +35,11 @@ function Langues(props) {
     }
     if(props.user.length!=0 && props.user.id>0)  { return (
       <div className = "user">
-        <h2>Langues: </h2>  
+        <br/>
+        <h1> <i class="fa fa-language" aria-hidden="true"></i> Langues:  </h1>  
         {
            <div>
-             {(leslangues(langue).length!=0)?(leslangues(langue)):(<div>vide vide</div>)}
+             {(leslangues(langue).length!=0)?(leslangues(langue)):(<div>Arabe Français</div>)}
            </div>
          
         }

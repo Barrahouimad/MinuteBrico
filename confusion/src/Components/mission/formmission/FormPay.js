@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Axios from 'axios'
 import Select from 'react-select'
+import {Link} from 'react-router-dom';
+
 
 
 export class FormPay extends Component {
@@ -57,13 +59,16 @@ export class FormPay extends Component {
 
 
         return (
+            
             <div className="form-container">
+                                <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
+
              
                 <br />
 
 
                 <div className="birthDate mb-4">
-                    <label className="form-label" htmlFor="form5Example1">Une estimation de votre mission: <span style={{ color: 'red' }}>*</span></label>
+                    <label className="form-label" htmlFor="form5Example1">Une estimation de la date de votre mission: <span style={{ color: 'red' }}>*</span></label>
                     <input type="date" className="form-control" id="birthDate" name="birthDate1" onChange={inputChange('date')} value={values.date} required />
                 </div>
 

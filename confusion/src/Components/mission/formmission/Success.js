@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import axios from "axios";
+import {Link} from 'react-router-dom';
+
 
 export class Success extends Component {
     async componentDidMount() {
@@ -35,9 +37,11 @@ export class Success extends Component {
     render() {
         return (
             <div>
-                <h1 className="text-black">Votre mission est postée!</h1>
-                <h3>Cliquez pour revenir à la page d'acceuil.</h3>
-                  <button className="btn btn-outline-success" onClick={()=>(document.location.href="http://localhost:3000/home")}>Ok</button>
+                <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
+                <h1 className="text-black">Votre mission est postée avec succès!</h1>
+                <h3>Cliquez sur Ok pour revenir à la page d'acceuil.</h3>
+                <br/>
+                  <button className="btn btn-primary" onClick={()=>(document.location.href="http://localhost:3000/home")}>Ok</button>
             </div>
         )
     }
