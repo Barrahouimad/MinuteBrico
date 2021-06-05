@@ -11,11 +11,11 @@ export class FormIntro extends Component {
     render() {
         const { values, inputChange,erreur,selectChange } = this.props;
         const options = [
-            { value: 'peinture', label: 'Peinture' },
-            { value: 'jardinage', label: 'Jardinage' },
-            { value: 'plomberie', label: 'Plomberie' }, 
+            { value: 'Peinture', label: 'Peinture' },
+            { value: 'Jardinage', label: 'Jardinage' },
+            { value: 'Plomberie', label: 'Plomberie' }, 
             { value: 'broderie', label: 'Broderie' }, 
-            { value: 'menuiserie', label: 'Menuiserie' }, 
+            { value: 'Menuiserie', label: 'Menuiserie' }, 
             { value: 'demenegement', label: 'Déménagement' }
 
 
