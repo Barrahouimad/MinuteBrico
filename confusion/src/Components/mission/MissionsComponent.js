@@ -139,7 +139,7 @@ const currentCartes=data.filter((x)=>(((equals(objToTab(x.categories),categories
 //setNombrecarte(data.length);
 
 
-console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].categories.filter((y)=>(donnee.includes("hh"))).length==1)?true:false)+"  second compare arrays  "+data.filter((x)=>((JSON.stringify(objToTab(x.categories))===JSON.stringify(donnee)))));
+//console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].categories.filter((y)=>(donnee.includes("hh"))).length==1)?true:false)+"  second compare arrays  "+data.filter((x)=>((JSON.stringify(objToTab(x.categories))===JSON.stringify(donnee)))));
     return(
    <div  id="mission"  className="fluid-container" className="d-flex flex-column">
        <div id="briconav" style={{position:"absolute",top:"0px",zIndex:"1"}}>
@@ -222,7 +222,7 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                             </div>
                       </div>
                 
-                   <div className="col-md-7"  style={{background:"white",position:"relative",top:"14px",left:"30px",height:"650px"}}>
+               { (data)?   <div className="col-md-7"  style={{background:"white",position:"relative",top:"14px",left:"30px",height:"650px"}}>
                        <div style={{position:"relative",top:"10px",left:"45%"}}>
                        <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
                       carteparpage={postperpage} paginate={paginate} />
@@ -240,7 +240,7 @@ console.log("nombre de cartes   : "+data.length+" les donnéesss  "+((data[0].ca
                       </div>
                       <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
                       carteparpage={postperpage} paginate={paginate} />
-                  </div>
+                  </div>:<div></div>}
                   </div>
           </div>
         

@@ -41,7 +41,7 @@ function DropDownListCheckBoxLanguages(props) {
                              onSelect={onSelect} 
                              onRemove={onRemove} 
                              showCheckbox={true}
-                             displayValue="langues"  />
+                             displayValue="langue"  />
                 <input type="texte" id="langueSelected" hidden/>
            </div>   
     );

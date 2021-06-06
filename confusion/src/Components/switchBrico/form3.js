@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import SweetAlert from 'sweetalert2-react';
 import Swal from 'sweetalert2'
 
-const url = "http://localhost:3000/profile";
+const url = "http://localhost:3000/home";
 //const url = "/";
 
 class Form3 extends Component {
@@ -57,24 +57,41 @@ class Form3 extends Component {
 
     if( description.length !==0 && diplome.Length!== 0 && school.Length!==0  && annee_entre.Length!==0  && annee_sortie.Length!==0  && diplome_serie.Length!==0 && customFile.Length!==0   ){
            //alert(certifications[0].name_certification);
+           console.log({elements:{ email:this.props.user.email,
+            password:this.props.user.password,
+            firstName:firstName,
+            lastName:lastName,
+          //  ville : city ,
+            //birthday:birthDate,
+            adresse:adresse,
+          //  phone : phone,
+            role:"Bricoleur",
+            token:this.generateString(10),
+            descriptionProfil : descriptionProfil.value,
+            certification:certifications,
+            categorie:category,
+            langues:langues,
+            diplomes:diplomes}})
            axios.post("http://localhost:8080/bricoleurscertif",
             {
                     email:this.props.user.email,
                     password:this.props.user.password,
                     firstName:firstName,
                     lastName:lastName,
-                    ville : city ,
-                    birthday:birthDate,
+                  //  ville : city ,
+                    //birthday:birthDate,
                     adresse:adresse,
+                    langues:langues,
                   //  phone : phone,
                     role:"Bricoleur",
                     token:this.generateString(10),
                     descriptionProfil : descriptionProfil.value,
                     certifications:certifications,
                     categorie:category,
-                    langues:langues,
+                  
                     diplomes:diplomes
                 
+
                 
 
             }).then(Swal.fire({
@@ -89,7 +106,7 @@ class Form3 extends Component {
                 }
             }))       .catch(err =>{
               
-                  alert(err+"  " +descriptionProfil.value+ "  token"+this.generateString(10)+"  " +adresse+"  " +city+"  " +birthDate+"  " +lastName+"  " +certifications[0].name_certification+"  " +diplomes[0].school+"  " +langues[0].langues);
+                  alert(err+"  " +descriptionProfil.value+ "  token"+this.generateString(10)+"  " +adresse/*+"  " +city+"  "/* +birthDate+"  " */+lastName+"  " +certifications[0].name_certification+"  " +diplomes[0].school+"  " /*+langues[0].langues*/);
                 })
 
         }
