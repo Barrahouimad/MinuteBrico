@@ -58,7 +58,10 @@ if(props.data.length!=0){
                                </div>
                                  
                             </div>
-                           <button onClick={()=>handelPostule(id)} className="btn btn-outline-success mt-5"style={{marginLeft:"350px",position:"relative",bottom:"100px"}} >Postuler</button>
+
+{(props.user.role=="Bricoleur")?
+                           <button onClick={()=>handelPostule(id)} className="btn btn-outline-success mt-5"style={{marginLeft:"350px",position:"relative",bottom:"100px"}} >Postuler</button>:<div></div>
+                       }
                         </div>
              </div>
 

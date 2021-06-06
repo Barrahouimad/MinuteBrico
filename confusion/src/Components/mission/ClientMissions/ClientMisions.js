@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from '../../home/nav';
 import './ClientMissionCss.css'
-import Carte from './Carte';
+import Carte from './carte'
 const ClientMissions = (props) => {
     /** */
     // console.log(props.data.length);
