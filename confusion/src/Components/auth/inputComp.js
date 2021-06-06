@@ -6,6 +6,7 @@ export default class InputComp extends Component {
   render() {
     return (
       <div className="InputComp">
+          <br/>
           <p className="title">{this.props.title}</p>
           <input className="Input" required  placeholder={this.props.placeHolder} type={this.props.type}  name={this.props.name} id={this.props.Id} />
       </div>
