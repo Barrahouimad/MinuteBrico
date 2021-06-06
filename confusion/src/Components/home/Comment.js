@@ -8,7 +8,7 @@ function Comment() {
     <div className='comment-container'>
       <section className='comment-title'>
         <p className='comment-title-heading'>
-        Comment ça Marche?
+        Comment ça marche?
         </p>
         </section>
       <div class='comment-links'>

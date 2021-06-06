@@ -10,12 +10,11 @@ const ClientMissions =(props)=>{
             <Nav  data={props.data} />
             <div id="containerr" >
                 <div className="row justify-content-center">
-                    <div style={{background:"#D1653E",textColor:"white",padding:"5px"}} className="col-md-6 col-xs-10">
-                            <h1 id="h11" >Récapitulatif de vos missions</h1>
+                    <div className="col-md-6 col-xs-10">
+                    <h6>Récapitulatif de vos missions postées: </h6> 
                     </div>
-                    <div style={{background:"#D1653E",marginLeft:"10px",padding:"5px"}} className="ml-3 col-md-2 col-xs-10">
-                            <h1 id="h11" >Status de mission</h1>
-
+                    <div className="ml-3 col-md-2 col-xs-10">
+                    <h6>Status:</h6> 
                     </div>
                </div>
                 <div>

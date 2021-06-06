@@ -13,7 +13,13 @@ function HeroSection(props) {
         <h1>Bienvenue chers bricoleurs,</h1>
         <p>Travaillez en freelance et gagnez votre vie avec MinuteBrico!</p>
         <br/>
-        <Link  to="/missions"><button style={{height:"100px",width:"320px",borderRadius:"2px",fontSize:"22px"}} className="boutton" >Voir les missions postées</button></Link> 
+        <Link  to="/missions"><Button
+            className='btns'
+            buttonStyle='btn--primary'
+            buttonSize='btn--large'
+            onClick={console.log('hey')}
+          >Voir les missions postées</Button>
+          </Link> 
 
        
       </div>
@@ -25,7 +31,12 @@ function HeroSection(props) {
     <h1>Bonjour chers clients</h1>
     <p>Trouver un MinuteBricoleur pour toutes vos bricoles maison!</p>
     <div className='hero-btns'>
-     <Link  to="/switch"><button style={{height:"100px",width:"320px",borderRadius:"22px",fontSize:"22px"}} className="boutton" >Devenir bricoleur</button></Link> 
+     <Link  to="/switch"><Button
+            className='btns'
+            buttonStyle='btn--primary'
+            buttonSize='btn--large'
+            onClick={console.log('hey')}
+          >Devenir MinuteBricoleur</Button></Link> 
     </div>
   </div>
   

@@ -12,7 +12,7 @@ import { SettingsInputAntennaSharp, SettingsSystemDaydreamTwoTone } from '@mater
 
     return (
       <div className="navbar">
-        <Link to="/home" ><img alt="..." src="/assets/logo.png" className="logo" /></Link>
+        <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
         <ul className="center">
           <Link to="/missions" ><li>Missions</li></Link>
           <Link id="mespostules"  to="/postulemissions" ><li>Mes postules</li></Link>
