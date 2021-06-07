@@ -24,6 +24,7 @@ class FormSignup extends Component {
             name_certification : '',
             name_centre : '',
             date_obtention : '',
+            descriptionProfil :'',
             date_expiration : '',
             certificat_serie: '',
             customFile : ''
@@ -75,8 +76,8 @@ class FormSignup extends Component {
   
     render() {
         const { step } = this.state;
-        const { photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,Categorie,certifications,diplomes,Langues} = this.state;
-        const values = { photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,Categorie,certifications,diplomes,Langues};
+        const { descriptionProfil,photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,Categorie,certifications,diplomes,Langues} = this.state;
+        const values = { descriptionProfil,photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,Categorie,certifications,diplomes,Langues};
         
 
         switch (step){

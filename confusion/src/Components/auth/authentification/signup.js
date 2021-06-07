@@ -3,6 +3,7 @@ import InputComp from "../inputComp"
 import {Link} from "react-router-dom"
 import Axios from 'axios'
 import SweetAlert from 'sweetalert2-react';
+import Swal from 'sweetalert2'
 const url ="http://localhost:3000";
 
 class Signup extends Component {
@@ -51,7 +52,17 @@ class Signup extends Component {
             if(this.state.typeClient==2){
                 this.continue();
             }else{
-                this.setState({ showSuc: true })
+                Swal.fire({
+                    title: 'Merci',                
+                    text: 'Votre compte à été créé avec succès',
+                    icon: 'success',
+                    button: 'Ok'
+                    
+                  }).then( okay => {
+                      if (okay){
+                        document.location.href="http://localhost:3000/login"
+                      }
+                  })
             }
           })
           .catch(err =>{
@@ -156,17 +167,15 @@ class Signup extends Component {
                         </div>
 
 
-                       {/* <InputComp className="AdreesInput" title="Adresse e-mail" placeHolder="Adresse e-mail" type="email" name="email" Id="IdEmail"/>
-                        <InputComp className="AdreesInput" title="Numéro de telephone" placeHolder="Numéro de telephone" type="phone" name="phone" Id="phoneNumber"/>
-                        <InputComp className="passwordInput" title="Mot de passe" placeHolder="Mot de passe" type="password" name="password1" Id="pass1"/>
-                        <InputComp className="passwordInput" title="Confimer le mot de passe" placeHolder="Confirmer le mot de passe" type="password" name="password2" Id="pass2"/>*/}
+                      
                         <input onClick={(e)=>{
                            this.onSubmit(e,1)                      
                         }} type="submit" className="Submit" value="S'inscrire" />
                         <input onClick={(e)=>{
                            this.onSubmit(e,2)                      
                         }} type="submit" className="Submit" value="Continuer en tant que Bricoleur" />
-                        {/*<button onClick={this.continue}  type="Submit" className="Submit" >Continuer en tant que Bricoleur  </button>*/}
+                       
+                       
                     </form>
                     <div className="Or">
                         <div className="bar"></div>

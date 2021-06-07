@@ -104,7 +104,7 @@ class Form3 extends Component {
                 if (okay){
                   document.location.href=url
                 }
-            }))       .catch(err =>{
+            })) .catch(err =>{
               
                   alert(err+"  " +descriptionProfil.value+ "  token"+this.generateString(10)+"  " +adresse/*+"  " +city+"  "/* +birthDate+"  " */+lastName+"  " +certifications[0].name_certification+"  " +diplomes[0].school+"  " /*+langues[0].langues*/);
                 })
