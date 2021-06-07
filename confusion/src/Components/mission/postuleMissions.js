@@ -72,10 +72,10 @@ useEffect(()=>{
                   label={item.titre_mission}
                   path='/comment'
                       />
-                 <div className="d-flex flex-row align-items-around p-3">
+                 <div className="d-flex flex-row-center align-items-around p-3">
                 <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
                 <button className="btn btn-outline-danger">Refuser</button>
-            </div>
+                </div>
               </div>
             );
           }

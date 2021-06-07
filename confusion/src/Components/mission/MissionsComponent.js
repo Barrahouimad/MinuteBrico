@@ -224,7 +224,7 @@ const currentCartes=data.filter((x)=>(((equals(objToTab(x.categories),categories
                 
                { (data)?   <div className="col-md-7"  style={{background:"white",position:"relative",top:"14px",left:"30px",height:"650px"}}>
                        <div style={{position:"relative",top:"10px",left:"45%"}}>
-                       <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
+                       <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).filter((x)=>(x.etat_mission==0)).length} 
                       carteparpage={postperpage} paginate={paginate} />
 
                       </div>
@@ -235,10 +235,10 @@ const currentCartes=data.filter((x)=>(((equals(objToTab(x.categories),categories
                    
 
                       <div id="box"  style={{ borderRadius:"2px",height:"90%",width:"96%",position:"realative",top:"40px"}} > 
-                       <MissionItems user={props.data} data={currentCartes.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' '))))} />
+                       <MissionItems user={props.data} data={currentCartes.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).filter((x)=>(x.etat_mission==0))} />
                        
                       </div>
-                      <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).length} 
+                      <Pagination totalcartes={data.filter((x)=>(((equals(objToTab(x.categories),categories)) && (x.mission_description.includes(motcle)) )||(((equals(objToTab(x.categories),categories))) && (motcle==' ') )||((categories.length==0)  && (x.mission_description.includes(motcle)))||((categories.length==0)  && (motcle==' ')))).filter((x)=>(x.etat_mission==0)).length} 
                       carteparpage={postperpage} paginate={paginate} />
                   </div>:<div></div>}
                   </div>

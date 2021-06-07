@@ -6,6 +6,19 @@ const CarteBrico = (props) => {
   const [brico, setBrico] = useState([]);
   const [show, setShow] = useState(false);
 
+  const handelTerminer =(mission)=>{
+  //alert("http://localhost:8080/etatmission/"+mission)
+    Axios.put("http://localhost:8080/etatmission/"+mission)
+ 
+      .then(res=>{
+        setShow(true)
+      })
+      .catch(err =>{
+       alert(err)
+          })
+  } 
+
+
   const handelAccept = (brico) => {
     // alert("http://localhost:8080/ClientAccept/"+brico+"/"+props.missionId+"/1")
     Axios.put("http://localhost:8080/ClientAccept/" + brico + "/" + props.missionId + "/1")
@@ -66,8 +79,11 @@ const CarteBrico = (props) => {
       {(props.data.length != 0) ? ((props.data[0].etat_mission == 0) ? <div>
         {carte}
       </div> :
-        <div>
-          <p style={{ color: "gray", marginRight: "20em", marginTop: "1em", fontSize: "2em" }} >Un bricoleur est choisi</p></div>) : <div></div>}
+        ((props.data[0].etat_mission == 1)?<div style={{ color: "gray" ,marginLeft:"9em"}} className="d-flex flex-col justify-content_center">
+          <p style={{ color: "gray", fontSize: "2em" }} >Un bricoleur est choisi</p>
+          <button style={{ marginBottom:"1em", marginLeft:"2em"}} className="btn btn-outline-success" onClick={()=>handelTerminer(props.data[0].id)}>Mission terminé ?</button>  </div>:<div>
+          <p style={{ color: "gray", marginRight: "20em", marginTop: "1em", fontSize: "2em" }} >Mission Terminé</p>
+            </div>)) : <div></div>}
     </div>
   );
 }
