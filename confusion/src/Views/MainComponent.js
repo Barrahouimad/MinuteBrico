@@ -21,6 +21,7 @@ import { StoreTwoTone } from '@material-ui/icons';
 import ProfileBricoleurDetails from '../Components/Profile/profileBricoleur/detailsProfile/ProfileBricoleurDetails'  
 import ClientToBrico from '../Components/Profile/profileBricoleur/clientToBrico'
 import ContainerBrico from '../Components/switchBrico/containerBrico';
+import Form4 from '../Components/Profile/editProfile/form4';
 const Main = ()=>{
    const stoor=useContext(ThemeContext);
 //the data 
@@ -59,22 +60,23 @@ console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id
              <Route path='/missions' component={()=><Mission  data={data} />}/>
              <Route path='/CreateMission'component={()=><Container  user={data} />}  />
              <Route path='/profile/:id' component={ClientToBrico} />
-
              <Route exact path='/profile' component={()=><ProfileBricoleurDetails  user={data} />} />
-
               <Protectedroute  auth={Cookies.get('Token')!=null} exact path="/editprofile" >
                      <ContainerEdit user={data} />
               </Protectedroute>
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>
              <Route exact path="/login" component={()=><Login  />} />
-             <Route exact path="/switch" component={()=><ContainerBrico user={data}/>} />
+             <Route  path="/switch" component={()=><ContainerBrico user={data}/>} />
              <Route path='/postulemissions' component={()=> <PostuleMission  user={data} /> }/>
              <Route path='/Mesmissions' component={()=><ClientMissions data={data}/> }/>
+
+             <Protectedroute  auth={Cookies.get('Token')!=null} exact path='/mdp' >
+                     <Form4 user={data} />
+              </Protectedroute>
              <Route path='/carddetails/' component={()=><DetailsMissions data={data}/> }/>
              <Redirect to="/home"/>
          </Switch>
-
          </div>
 );  
 }

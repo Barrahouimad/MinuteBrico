@@ -1,5 +1,6 @@
 import React ,{useEffect, useState} from 'react';
 import useSWR from 'swr'
+import Carte from './ClientMissions/carte'
 import Axios from "axios"
 import Nav from '../home/nav';
 import './mission.css';
@@ -43,15 +44,38 @@ useEffect(()=>{
        
   
            return (
-            <div>
-              <CardItem  key={i.id}
-                  src={item.images}
-                  text={item.mission_description}
-                  label={item.titre_mission}
-                  path='/comment'
-                />
+            <div  >
             
-              <div style={{color:"green",fontSize:"2em"}} ><p>Vous l'avais accepté</p></div>
+            <div key={item.id} style={{}} className="mt-3 row justify-content-center">
+          <div style={{ height: "200px", borderRadius: "5px" ,width:"60em"}} className="col-md-6 col-xs-10">
+            <div className="card">
+              <h3 style={{ position: "absolute", left: "9px" }} > {item.titre_mission}</h3>
+              <div className="mt-4 card-body">
+                <div className=" d-flex flex-column">
+                  <p style={{ float: "left" }} className="col-12 card-text">{item.mission_description}</p>
+                  <div className="d-flex flex-row">
+                    {item.categories.map((x) => {
+                      return (
+                        <p key={x.id} style={{ color: "#D1653E" }} className="col-2 " >{x.nom} </p>
+                      );
+                    })}
+                  </div>
+                </div>
+                {(!window.location.href.includes("carddetails") || item.etat_mission == 2) ?
+                  <a style={{ float: "right" }} href={"carddetails/" + item.id} className="mt-4 btn btn-success">Voir détails</a> : <p></p>}
+              </div>
+            </div>
+          </div>
+          <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingTop: "70px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
+          <div style={{color:"green",fontSize:"2em"}} ><p>Vous l'avais accepté</p></div>
+          </div>
+        </div>
+
+
+
+           
+            
+           
           </div>
                 
             
@@ -66,16 +90,37 @@ useEffect(()=>{
             setEstaccepe(2) ;
             return (
               <div>
-                <CardItem    key={i.id}
-                  src={item.images}
-                  text={item.mission_description}
-                  label={item.titre_mission}
-                  path='/comment'
-                      />
-                 <div className="d-flex flex-row-center align-items-around p-3">
-                <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
-                <button className="btn btn-outline-danger">Refuser</button>
-                </div>
+
+
+          <div key={item.id} style={{}} className="mt-3 row justify-content-center">
+                    <div style={{ height: "200px", borderRadius: "5px" ,width:"60em"}} className="col-md-6 col-xs-10">
+                      <div className="card">
+                        <h3 style={{ position: "absolute", left: "9px" }} > {item.titre_mission}</h3>
+                        <div className="mt-4 card-body">
+                          <div className=" d-flex flex-column">
+                            <p style={{ float: "left" }} className="col-12 card-text">{item.mission_description}</p>
+                            <div className="d-flex flex-row">
+                              {item.categories.map((x) => {
+                                return (
+                                  <p key={x.id} style={{ color: "#D1653E" }} className="col-2 " >{x.nom} </p>
+                                );
+                              })}
+                            </div>
+                          </div>
+                          {(!window.location.href.includes("carddetails") || item.etat_mission == 2) ?
+                            <a style={{ float: "right" }} href={"carddetails/" + item.id} className="mt-4 btn btn-success">Voir détails</a> : <p></p>}
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingTop: "70px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
+                    <div className="d-flex flex-row-center align-items-around p-3">
+                      <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
+                      <button className="btn btn-outline-danger">Refuser</button>
+                      </div>
+                      </div>
+                  </div>
+
+
               </div>
             );
           }
@@ -84,13 +129,32 @@ useEffect(()=>{
               console.log({estAccept:0})
                 return(
                           <div>
-                          <CardItem  key={i.id}
-                              src={item.images}
-                              text={item.mission_description}
-                              label={item.titre_mission}
-                              path='/comment'
-                              />
-                        <div style={{color:"red",fontSize:"2em"}} >Pas de réponse</div>
+
+                 
+          <div key={item.id} style={{}} className="mt-3 row justify-content-center">
+                    <div style={{ height: "200px", borderRadius: "5px" ,width:"60em"}} className="col-md-6 col-xs-10">
+                      <div className="card">
+                        <h3 style={{ position: "absolute", left: "9px" }} > {item.titre_mission}</h3>
+                        <div className="mt-4 card-body">
+                          <div className=" d-flex flex-column">
+                            <p style={{ float: "left" }} className="col-12 card-text">{item.mission_description}</p>
+                            <div className="d-flex flex-row">
+                              {item.categories.map((x) => {
+                                return (
+                                  <p key={x.id} style={{ color: "#D1653E" }} className="col-2 " >{x.nom} </p>
+                                );
+                              })}
+                            </div>
+                          </div>
+                          {(!window.location.href.includes("carddetails") || item.etat_mission == 2) ?
+                            <a style={{ float: "right" }} href={"carddetails/" + item.id} className="mt-4 btn btn-success">Voir détails</a> : <p></p>}
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingTop: "70px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
+                    <div style={{color:"red",fontSize:"2em"}} >Pas de réponse</div>
+                      </div>
+                  </div>
                         </div>
 
 
@@ -136,7 +200,7 @@ console.log({Donne:Donnee})
                 setShow(false)
               }}
             />
-            <div className="container-fluid" style={{width:"40%"}}>
+            <div className="container-fluid" style={{width:"40%",paddingTop:"7em"}}>
             {Donnee}
             </div>
              

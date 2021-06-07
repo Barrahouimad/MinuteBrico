@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Editform from './editform';
-
+import Form4 from'./form4'
 import './forms.css'
 
 class FormEdit extends Component {
@@ -78,11 +78,12 @@ class FormEdit extends Component {
                 );
             case 2: 
                 return (
-                    <Editform
+                    <Form4
                     prevStep = {this.prevStep}
                     nextStep={this.nextStep}
                     inputChange = {this.inputChange}
                     values= {values}
+                    user={this.props.user}
                         />
                 );
                 

@@ -39,7 +39,7 @@ class Editform extends Component {
 
     componentDidMount(){
         
-            axios.get("http://localhost:8080/bricoleurs/30").then((reponse)=>{
+            axios.get("http://localhost:8080/bricoleurs/"+this.props.user.id).then((reponse)=>{
              
                 console.log(reponse.data.lastName)
 
@@ -91,7 +91,7 @@ class Editform extends Component {
      
             // alert(" here is put " + this.state.first_name);
         
-             axios.put("http://localhost:8080/bricoleurs/30",{
+             axios.put("http://localhost:8080/bricoleurup/"+this.props.user.token,{
            
                 firstName: this.state.first_name,
                 lastName:this.state.last_name,
@@ -104,7 +104,7 @@ class Editform extends Component {
             }).catch((err)=>{
                 console.log(err)
             })
-            document.location.href="http://localhost:3000/profile";
+            document.location.href="http://localhost:3000/";
         }
         else{
             this.setState({ showErr: false })

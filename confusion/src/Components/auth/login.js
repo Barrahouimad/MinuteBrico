@@ -29,25 +29,26 @@ const Login = (props) => {
       href = "http://localhost:8080/ClientAccount/" + email + "/" + password;
     }
     //alert(href);
-    console.log("input in function verify : " + email);
-    console.log(" the get axios : http://localhost:8080/ClientAccount/" + email + "/" + password)
+    console.log("the connection href " + href);
+    //console.log(" the get axios : http://localhost:8080/ClientAccount/" + email + "/" + password)
 
 
     Axios.get(href)
 
-
+       
 
       .then(res => {
 
-        console.log("reponse du db sur login  : " + res.data[0].id);
-        if (res.data.length != 0) {
-
+       // console.log("reponse du db sur login  : " + res.data[0].id);
+     
+       if (res.data[0].firstName!="Null") {
+       // alert( res.data+" d")
           // the cookie 
           Cookies.set('Token', res.data[0].token)
           Cookies.set('Role', res.data[0].role)
           document.location.href = "http://localhost:3000/home";
         } else {
-
+         // alert(11111)
           setShowErr(true);
           console.log("the new auth in else " + props.auth)
 
@@ -56,8 +57,8 @@ const Login = (props) => {
       })
       .catch(err => {
         console.log("still have error ", err);
-      })
-
+      });
+     // setShowErr(true);
   }
   //function Try(res,setId,setAuth,auth){
   // console.log("from try : "+res.data);
