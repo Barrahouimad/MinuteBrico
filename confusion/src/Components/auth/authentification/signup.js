@@ -48,8 +48,16 @@ class Signup extends Component {
             role:"Client"   //"iliass@gmail.com"
        })
           .then(res=>{
-            
-            if(this.state.typeClient==2){
+            if (res.data=="existe"){
+              Swal.fire({
+                title: 'Oops...',                
+                text: 'email existe déjà',
+                icon: 'error',
+                button: 'Ok'
+                
+              })
+            }else{
+              if(this.state.typeClient==2){
                 this.continue();
             }else{
                 Swal.fire({
@@ -64,6 +72,8 @@ class Signup extends Component {
                       }
                   })
             }
+            }
+            
           })
           .catch(err =>{
             this.setState({

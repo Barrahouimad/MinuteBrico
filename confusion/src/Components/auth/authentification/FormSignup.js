@@ -19,7 +19,7 @@ class FormSignup extends Component {
         adresse : '',
         city : '',
         Categorie : [],
-
+        Langues :[],
       certifications : [{
             name_certification : '',
             name_centre : '',
@@ -40,10 +40,7 @@ class FormSignup extends Component {
 
         }],
 
-        Langues :[{
-            langue : '',
-
-        }]
+        
     };
 
     nextStep = () => {
@@ -73,6 +70,10 @@ class FormSignup extends Component {
         this.setState({ Categorie: cat });
        // alert("from setcategory "+this.state.Categorie);
     };
+    setLangue=(cat)=>{
+        this.setState({ Langues: cat });
+       // alert("from setcategory "+this.state.Categorie);
+    };
   
     render() {
         const { step } = this.state;
@@ -95,7 +96,7 @@ class FormSignup extends Component {
                         nextStep={this.nextStep}
                         prevStep = {this.prevStep}
                         inputChange = {this.inputChange}
-
+                        setLangue={this.setLangue}
                         values= {values}
                             />
                     );
