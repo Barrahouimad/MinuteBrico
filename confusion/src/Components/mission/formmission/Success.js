@@ -39,9 +39,9 @@ export class Success extends Component {
             <div>
                 <Link to="/home" ><img style={{width:"125px",height:"103px",marginBottom:"10px"}} alt="..." src="/assets/logo.png" className="logo" /></Link>
                 <h1 className="text-black">Votre mission est postée avec succès!</h1>
-                <h3>Cliquez sur Ok pour revenir à la page d'acceuil.</h3>
+                <h3>Cliquez sur Ok pour visualiser vous créations.</h3>
                 <br/>
-                  <button className="btn btn-primary" onClick={()=>(document.location.href="http://localhost:3000/home")}>Ok</button>
+                  <button className="btn btn-primary" onClick={()=>(document.location.href="http://localhost:3000/Mesmissions")}>Ok</button>
             </div>
         )
     }

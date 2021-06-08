@@ -16,6 +16,7 @@ import Container from '../Components/mission/formmission/container'
 import Cookies from 'js-cookie';
 import Axios from "axios"
 import ContainerEdit from '../Components/Profile/editProfile/containerEdit';
+import Single from '../Components/Leblog/single/Single'
 import Context from '../Shared/context';
 import { StoreTwoTone } from '@material-ui/icons';
 import ProfileBricoleurDetails from '../Components/Profile/profileBricoleur/detailsProfile/ProfileBricoleurDetails'  
@@ -63,6 +64,9 @@ console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id
              <Route exact path='/profile' component={()=><ProfileBricoleurDetails  user={data} />} />
               <Protectedroute  auth={Cookies.get('Token')!=null} exact path="/editprofile" >
                      <ContainerEdit user={data} />
+              </Protectedroute>
+              <Protectedroute   path="/blog" >
+                     <Single user={data} />
               </Protectedroute>
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>

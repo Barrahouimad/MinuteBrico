@@ -61,12 +61,10 @@ useEffect(()=>{
                     })}
                   </div>
                 </div>
-                {(!window.location.href.includes("carddetails") || item.etat_mission == 2) ?
-                  <a style={{ float: "right" }} href={"carddetails/" + item.id} className="mt-4 btn btn-success">Voir détails</a> : <p></p>}
-              </div>
+                  </div>
             </div>
           </div>
-          <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingTop: "70px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
+          <div style={{ height: "200px",width:"30em", marginLeft: "10px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
           <div style={{color:"green",fontSize:"2em"}} ><p>Vous l'avais accepté</p></div>
           </div>
         </div>
@@ -107,12 +105,11 @@ useEffect(()=>{
                               })}
                             </div>
                           </div>
-                          {(!window.location.href.includes("carddetails") || item.etat_mission == 2) ?
-                            <a style={{ float: "right" }} href={"carddetails/" + item.id} className="mt-4 btn btn-success">Voir détails</a> : <p></p>}
+
                         </div>
                       </div>
                     </div>
-                    <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingTop: "70px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
+                    <div style={{ height: "200px",width:"30em", marginLeft: "10px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
                     <div className="d-flex flex-row-center align-items-around p-3">
                       <button onClick={()=>handelAccept(item.id)} className="btn btn-outline-success">Accepter</button>
                       <button className="btn btn-outline-danger">Refuser</button>
@@ -146,12 +143,10 @@ useEffect(()=>{
                               })}
                             </div>
                           </div>
-                          {(!window.location.href.includes("carddetails") || item.etat_mission == 2) ?
-                            <a style={{ float: "right" }} href={"carddetails/" + item.id} className="mt-4 btn btn-success">Voir détails</a> : <p></p>}
-                        </div>
+                               </div>
                       </div>
                     </div>
-                    <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingTop: "70px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
+                    <div style={{ height: "200px",width:"30em", marginLeft: "10px", paddingBottom: "30px", background: "#ffff", borderRadius: "5px" }} className="pl-3 col-md-2 col-xs-10 ">
                     <div style={{color:"red",fontSize:"2em"}} >Pas de réponse</div>
                       </div>
                   </div>
@@ -163,12 +158,6 @@ useEffect(()=>{
          
           }
   
-         } else{
-           return(
-             <div   style={{color:"black",fontSize:"13em"}}>
-               vide
-             </div>
-           );
          }
 
 
@@ -201,7 +190,7 @@ console.log({Donne:Donnee})
               }}
             />
             <div className="container-fluid" style={{width:"40%",paddingTop:"7em"}}>
-            {Donnee}
+            {(Donnee.length>0)?Donnee:<div style={{color:"#D1653E",fontSize:"2em",marginTop:"3em"}} > Désolé <br/>Vous n'avait pas encore postuler à une mission</div>}
             </div>
              
            </div>

@@ -5,9 +5,9 @@ import Swal from 'sweetalert2'
 import './style.css'
 import axios from 'axios'
 
-const url ="http://localhost:3000/home"  // on preciser une autre url apres (this is just)
+  // on preciser une autre url apres (this is just)
 const Review = (props) => {
-
+  const url ="http://localhost:3000/profile/"+props.user.id
     const [rating , setRating]=useState(null);  
     const [hover , setHover]=useState(null);   
     const [review, setReview]=useState('');    
@@ -64,6 +64,7 @@ const Review = (props) => {
                 Certifications: res.data.certifications,
                 Diplomes: res.data.diplomes,
                 Langues: res.data.langues,*/
+                
                 reviewsOnBrico: array3
             })  .then(Swal.fire({
                 title: 'Merci',                

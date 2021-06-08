@@ -49,11 +49,11 @@ if(props.data.length!=0){
                  </div>
                         <div className="card-img-overlay">
                             <div className="d-flex flex-column" style={{border:"1px  #91091E",opacity: "0.5",width:"650px" , height:"160px",background:"#a5a19f"}}>
-                                 <h2 className="card-title " style={{color:"#D1653E",fontFamily:"'Lato', sans-serif",position:"relative",left:"-240px",fontSize:"38px"}}>{item.titre_mission}</h2>
+                                 <h3 className="card-title " style={{color:"#D1653E",fontFamily:"'Lato', sans-serif",position:"relative",left:"-240px",fontSize:"28px"}}>{item.titre_mission}</h3>
                                  <p className="card-text" style={{fontFamily:"'Lato', sans-serif",marginRight:"170px"}}>{item.mission_description}</p>
                                <div className="d-flex flex-row">
                                {item.categories.map((x)=>{
-                                  return(<p className="p-2 fw-light bg-success" key={x.id}>{ x.nom} </p>); 
+                                  return(<p className="p-2 fw-light " key={x.id} style={{background:"#D1653E"}}>{ x.nom} </p>); 
                                  })}
                                </div>
                                  
