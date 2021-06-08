@@ -4,30 +4,32 @@ import './forms.css';
 
 function DropDownListCheckBoxLanguages(props) {
     const data=[
-        {langue:"Anglais" , id:1},
-        {langue:"Arabe" , id:2},
-        {langue:"Francais" , id:3},     
+        {langue:"Arabe" , id:1},
+        {langue:"Anglais" , id:2},
+        {langue:"Francais" , id:3},
+        
+        
     ]
 
     const onSelect= (selectedList, selectedItem) => {
-      //  setCategory(selectedItem);
-       //console.log(selectedList)
-       document.getElementById("langueSelected").value= document.getElementById("langueSelected").value+'_'+selectedItem.langues;
-       //alert(" selected "+selectedList);
+      
+       document.getElementById("langueSelected").value= document.getElementById("langueSelected").value+'_'+selectedItem.langue;
        const catList=[];
        for(var i=0;i<selectedList.length;i++){
              const cat={
-                 name:selectedList[i].langues
+                 nom:selectedList[i].langue
              }
              catList.push(cat);
        }
+       console.log(" selected "+catList+" selectedItem  "+selectedItem.langue);
+
      props.setLangue(catList);
-     //props.inputChange(catList);
+
     }
     
     const onRemove=(selectedList, removedItem)=> {
-        //console.log(selectedList)
-        document.getElementById("langueSelected").value= document.getElementById("langueSelected").value.replace('_'+removedItem.langues,'');
+        console.log(removedItem.langue)
+        document.getElementById("langueSelected").value= document.getElementById("langueSelected").value.replace('_'+removedItem.langue,'');
     }
     const [selectedValue,setSelectedValue]=useState([]);
     

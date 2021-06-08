@@ -13,13 +13,17 @@ function HeroSection(props) {
         <h1>Bienvenue chers bricoleurs,</h1>
         <p>Travaillez en freelance et gagnez votre vie avec MinuteBrico!</p>
         <br/>
-        <Link  to="/missions"><Button
+        <Button
             className='btns'
             buttonStyle='btn--primary'
             buttonSize='btn--large'
             onClick={console.log('hey')}
-          >Voir les missions postées</Button>
-          </Link> 
+          >
+            <Link to="/missions">
+               Voir les missions postées
+            </Link>
+          </Button>
+          
 
        
       </div>

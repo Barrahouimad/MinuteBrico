@@ -19,14 +19,13 @@ class FormSwitchBrico extends Component {
         birthDate : '',
         adresse : '',
         city : '',
-        descriptionProfil : '',
-        category : [],
-        langues:[],
-
+        Categorie : [],
+        Langues :[],
       certifications : [{
             name_certification : '',
             name_centre : '',
             date_obtention : '',
+            descriptionProfil :'',
             date_expiration : '',
             certificat_serie: '',
             customFile : ''
@@ -68,20 +67,21 @@ class FormSwitchBrico extends Component {
         });
     
     }
-    setCategory=(cat)=>{
-        this.setState({ category: cat });
-        
+    setCategorie=(cat)=>{
+        this.setState({ Categorie: cat });
+       // alert("from setcategory "+this.state.Categorie);
     };
     setLangue=(cat)=>{
-        this.setState({ langues: cat });
-        
+        this.setState({ Langues: cat });
+       // alert("from setcategory "+this.state.Categorie);
     };
+  
    
 
     render() {
         const { step } = this.state;
-        const { photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,category,certifications,diplomes,langues,descriptionProfil} = this.state;
-        const values = { photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,category,certifications,diplomes,langues,descriptionProfil};
+        const { descriptionProfil,photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,Categorie,certifications,diplomes,Langues} = this.state;
+        const values = { descriptionProfil,photo, firstName, lastName,displayName, email, password, phone, birthDate,adresse,Categorie,certifications,diplomes,Langues};
         
         
 
@@ -99,12 +99,12 @@ class FormSwitchBrico extends Component {
             case 2: 
                 return (
                    <Form2
-                    prevStep = {this.prevStep}
-                    nextStep={this.nextStep}
-                    inputChange = {this.inputChange}
-                    setCategory={this.setCategory}
-                    values= {values}
-                    inputChangecertif={this.inputChangecertif}
+                   prevStep = {this.prevStep}
+                   nextStep={this.nextStep}
+                   inputChange = {this.inputChange}
+                   setCategorie={this.setCategorie}
+                   values= {values}
+                   inputChangecertif={this.inputChangecertif}
                         />
                                     );
                 case 3: 
