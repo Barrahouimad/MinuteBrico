@@ -14,13 +14,13 @@ export default function Sidebar() {
         <ul className="sidebarList">
           <li className="sidebarListItem">
 
-              Peinture
+              Jardinage
           </li>
           <li className="sidebarListItem">
               Bricolage
           </li>
           <li className="sidebarListItem">
-              Maison
+              Terre
           </li>
           <li className="sidebarListItem">
               Astuces

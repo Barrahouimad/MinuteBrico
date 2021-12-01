@@ -17,6 +17,11 @@ import Cookies from 'js-cookie';
 import Axios from "axios"
 import ContainerEdit from '../Components/Profile/editProfile/containerEdit';
 import Single from '../Components/Leblog/single/Single'
+import Single1 from '../Components/Leblog/single/Single1'
+import Single2 from '../Components/Leblog/single/Single2'
+import Single3 from '../Components/Leblog/single/Single3'
+import Single4 from '../Components/Leblog/single/Single4'
+import Single5 from '../Components/Leblog/single/Single5'
 import Context from '../Shared/context';
 import { StoreTwoTone } from '@material-ui/icons';
 import ProfileBricoleurDetails from '../Components/Profile/profileBricoleur/detailsProfile/ProfileBricoleurDetails'  
@@ -65,8 +70,23 @@ console.log("store value in main : "+stoor.Auth+ "  the id is : "+ stoor.user.id
               <Protectedroute  auth={Cookies.get('Token')!=null} exact path="/editprofile" >
                      <ContainerEdit user={data} />
               </Protectedroute>
-              <Protectedroute   path="/blog" >
+              <Protectedroute exact  path="/blog" >
                      <Single user={data} />
+              </Protectedroute>
+              <Protectedroute exact  path="/blog1" >
+                     <Single1 user={data} />
+              </Protectedroute>
+              <Protectedroute exact  path="/blog2" >
+                     <Single2 user={data} />
+              </Protectedroute>
+              <Protectedroute exact  path="/blog3" >
+                     <Single3 user={data} />
+              </Protectedroute>
+              <Protectedroute exact  path="/blog4" >
+                     <Single4 user={data} />
+              </Protectedroute>
+              <Protectedroute exact  path="/blo5" >
+                     <Single5 user={data} />
               </Protectedroute>
              <Route path='/sign-up' component={ContainerAuth}/>
              <Route path='/bricosignup' component={SignUpEtape2}/>

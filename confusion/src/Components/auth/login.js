@@ -26,7 +26,7 @@ const Login = (props) => {
     if (brico) {
       href = "http://localhost:8080/bricoleursCheck/" + email + "/" + password;
     } else {
-      href = "http://localhost:8080/ClientAccount/" + email + "/" + password;
+      href = "http://localhost:8080/ClientAccount/" + password + "/" + email;
     }
     //alert(href);
     console.log("the connection href " + href);
@@ -98,7 +98,7 @@ const Login = (props) => {
           <p className="content">ou bien</p>
           <div className="bar"></div>
         </div>
-        <div className="DejaSeconnact">Vous n'avez pas de compte? <Link to="/signup" className="btnConnect">S'inscrire</Link></div>
+        <div className="DejaSeconnact">Vous n'avez pas de compte? <Link to="/sign-up" className="btnConnect">S'inscrire</Link></div>
       </div>
       <img alt="..." src="/assets/12.jpeg" className="bg" />
     </div>

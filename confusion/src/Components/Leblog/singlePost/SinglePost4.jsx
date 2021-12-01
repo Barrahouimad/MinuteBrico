@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./singlePost.css";
-import importImg from '../../images/img-14.jpg';
+import importImg from '../images/img-14.jpg';
 
 
 

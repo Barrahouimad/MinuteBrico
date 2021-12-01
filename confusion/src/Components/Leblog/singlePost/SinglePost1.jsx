@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./singlePost.css";
-import importImg from '../../images/img-11.jpeg';
+import importImg from '../images/img-11.jpeg';
 
 
 
@@ -27,7 +27,7 @@ export default function SinglePost1() {
                 Chaimae
             </b>
           </span>
-          <span>Il y a un jour</span>
+          <span>20 Avril 2021</span>
         </div>
         <p className="singlePostDesc">
         Comme pour tous vos travaux, le choix des outils est une étape cruciale. Pour retourner la terre de votre sol, un vaste panel d’options s’offre à vous. La fourche-bêche est bien sûr l’un des outils les plus utilisés pour travailler le sol. Pratique, elle rentre facilement dans le sol et permet de le retourner sans l’abimer. Le louchet est utilisé pour un travail en profondeur afin de retourner la terre sur une grande surface. Pratique, on peut cependant lui reprocher de ne permettre qu’un travail grossier qui risque d’abimer les matières organiques bénéfiques du sol. Le louchet favorise également l’apparition de nuisibles en remontant larves et vers à la surface. Ne faites pas l’impasse sur la griffe, qui vous aidera à briser les mottes ; c’est un véritable indispensable unique en son genre. Enfin, la plupart des jardiniers à la fibre écolo préfèrent des outils comme la fourche à bêcher ou la Grelinette, qui permettent un travail du sol dans le respect de la vie sous-terraine. Ces outils sont parfaits pour aérer la terre sans excès tout en préservant la richesse sédimentaire.          <br />
